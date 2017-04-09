@@ -11,11 +11,15 @@
 
 
 require_once('ajax-functions.php');
+require_once('shortcodes.php');
 
 	
 function ssp_enqueued_assets() {
-	// wp_enqueue_script( 'my-script', plugin_dir_url( __FILE__ ) . '/js/my-script.js', array( 'jquery' ), '1.0', true );
-	// wp_enqueue_style( 'ssp-bootstrap-grid-system', plugin_dir_url( __FILE__ ) . 'public/css/bootstrap-grid-system.css', array(), '1.0', 'all' );
+	wp_enqueue_style( 'ssp-shopify-styles',  plugin_dir_url( __FILE__ ) . 'public/css/shopify-styles.css' );
+
+	wp_enqueue_script( 'ssp-shopify-cdn',  '//sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js', array( 'jquery' ) );
+	wp_enqueue_script( 'bts-button',  plugin_dir_url( __FILE__ ) . 'public/js/button.js', false );
+	wp_enqueue_script( 'ssp-shopify-scripts',  plugin_dir_url( __FILE__ ) . 'public/js/shopify-scripts.js', array( 'jquery' ), '1.0' );
 }
 	
 add_action( 'wp_enqueue_scripts', 'ssp_enqueued_assets' );
@@ -24,14 +28,14 @@ add_action( 'wp_enqueue_scripts', 'ssp_enqueued_assets' );
 function ssp_admin_enqueued_assets() {
 	wp_enqueue_style( 'ssp-css-tabed-admin-menu', plugin_dir_url( __FILE__ ) . 'public/css/tabed-admin-menu.css' );
     
-    wp_enqueue_script('jquery');
+    wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'ssp-js-tabed-admin-menu', plugin_dir_url( __FILE__ ) . 'public/js/tabed-admin-menu.js', array( 'jquery' ), '1.0.0', true );
 	
-    wp_register_script( 'ssp_shopify-sdk', '//sdks.shopifycdn.com/js-buy-sdk/latest/shopify-buy.polyfilled.globals.min.js', 'jquery', '1.0' );
+    wp_register_script( 'ssp-shopify-sdk', '//sdks.shopifycdn.com/js-buy-sdk/latest/shopify-buy.polyfilled.globals.min.js', 'jquery', '1.0' );
 	wp_register_script( 'ssp-js-shopify-refresh', plugin_dir_url( __FILE__ ) . 'public/js/shopify-refresh.js', array( 'jquery' ), '1.0' );
     
     if ( is_admin() ) {
-        wp_enqueue_script('ssp_shopify-sdk');
+        wp_enqueue_script('ssp-shopify-sdk');
         wp_enqueue_script('ssp-js-shopify-refresh', array('jquery', 'shopify-sdk'));
 
         wp_localize_script('ssp-js-shopify-refresh', 'sspVars', array(
@@ -49,7 +53,7 @@ add_action( 'admin_enqueue_scripts', 'ssp_admin_enqueued_assets' );
 
 
 function ssp_menu() {
-	add_menu_page('Smart Shopify Product Settings', 'Smart Shopify Product', 'administrator', 'smart-shopify-product-settings', 'ssp_settings_page', 'dashicons-products');
+	add_menu_page('Smart Shopify Product Settings', 'S. Shopify Product', 'administrator', 'smart-shopify-product-settings', 'ssp_settings_page', 'dashicons-products');
 }
 
 add_action('admin_menu', 'ssp_menu');
@@ -249,3 +253,4 @@ function auto_import_shopify_products($id, $title){
 
 	}
 }
+

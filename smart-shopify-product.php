@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Smart Shopify Product
- * Plugin URI: http://www.com
+ * Plugin URI: https://github.com/yulioaj290/smart-shopify-product
  * Description: This plugin allows add some shortcodes on post to insert Shopify products. Also allow to retrieve automatically all products on the shopify store.
  * Version: 1.0.0
  * Author: Yulio Aleman Jimenez
- * Author URI: http://yulioaj290.com
+ * Author URI: https://www.linkedin.com/in/yulioaj290/
  * License: GPL2
  */ 
 
@@ -20,6 +20,12 @@ function ssp_enqueued_assets() {
 	wp_enqueue_script( 'ssp-shopify-cdn',  '//sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js', array( 'jquery' ) );
 	wp_enqueue_script( 'bts-button',  plugin_dir_url( __FILE__ ) . 'public/js/button.js', false );
 	wp_enqueue_script( 'ssp-shopify-scripts',  plugin_dir_url( __FILE__ ) . 'public/js/shopify-scripts.js', array( 'jquery' ), '1.0' );
+
+    wp_localize_script('ssp-shopify-scripts', 'sspVars', array(
+        'apiKey'                => get_option('ssp_access_token'),
+        'domain'                => remove_protocol(get_option('ssp_shop_url')),
+        'appId'                 => get_option('ssp_app_id')
+    ));
 }
 	
 add_action( 'wp_enqueue_scripts', 'ssp_enqueued_assets' );
@@ -40,7 +46,7 @@ function ssp_admin_enqueued_assets() {
 
         wp_localize_script('ssp-js-shopify-refresh', 'sspVars', array(
             'apiKey'                => get_option('ssp_access_token'),
-            'domain'                => get_option('ssp_shop_url'),
+            'domain'                => remove_protocol(get_option('ssp_shop_url')),
             'appId'                 => get_option('ssp_app_id'),
             'processLink'           => get_admin_url(null, '/admin-ajax.php?action=wps_process_product'),
             'getAllProductsLink'    => get_admin_url(null, '/admin-ajax.php?action=wps_get_all_products'),

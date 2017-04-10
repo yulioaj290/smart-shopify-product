@@ -36,7 +36,7 @@ var wshopRefresh = {
 
     initShopify: function(){
         wshopRefresh.shopClient = ShopifyBuy.buildClient({
-            apiKey: sspVars.apiKey,
+            accessToken: sspVars.apiKey,             // apiKey: sspVars.apiKey, // Deprecated
             // Strips out 'http' if user entered it in their options
             domain: sspVars.domain,
             appId: sspVars.appId

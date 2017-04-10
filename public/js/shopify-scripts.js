@@ -3,10 +3,9 @@ jQuery(document).ready(function ($) {
 });
 
 var client = ShopifyBuy.buildClient({
-	    domain: 'dia-y-luna.myshopify.com', 
-	    accessToken: '86ea0eb853822c2a44e9504b75e019f1',
-	    appId: '6' 
-	    // apiKey: '86ea0eb853822c2a44e9504b75e019f1', // Deprecated
+	    accessToken: sspVars.apiKey,             // apiKey: sspVars.apiKey, // Deprecated
+	    domain: sspVars.domain, 
+	    appId: sspVars.appId
 	});
 
 var cart;

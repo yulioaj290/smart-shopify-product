@@ -1,9 +1,11 @@
 jQuery(document).ready(function ($) { 
-
+	shopify_basic_product();
+	shopify_info_product();
 });
 
 var client = ShopifyBuy.buildClient({
-	    accessToken: sspVars.apiKey,             // apiKey: sspVars.apiKey, // Deprecated
+	    accessToken: sspVars.apiKey,             
+	    apiKey: sspVars.apiKey, // Deprecated
 	    domain: sspVars.domain, 
 	    appId: sspVars.appId
 	});
@@ -54,81 +56,113 @@ function redirect_shopify_checkout_url() {
 
 // Get all info of Shopify product
 // ============================================================================================================
-function shopify_basic_product(product_id){
+function shopify_basic_product(){
 	jQuery(function ($) { 
 
 		product = null;
 
-		client.fetchProduct(product_id).then(function(fetchedProduct) {
-		    var selectedVariant = fetchedProduct.selectedVariant;
-		    var selectedVariantImage = fetchedProduct.selectedVariantImage;
-		    var currentOptions = fetchedProduct.options;
+		var $selector = $('.shopify-basic-container #sh-product-id');
+		
+		if($selector.length){
+			var product_id = $selector.html();
+			var container_selector = '#sh-product-' + product_id + ' ';
 
-			$('.sh-images-main').html('<img alt="' + fetchedProduct.title + '" id="sh-product-main-image" class="product-image" src="' + selectedVariantImage.src + '" data-zoom-image="' + selectedVariantImage.src + '" >');
+			client.fetchProduct(product_id).then(function(fetchedProduct) {
+			    var selectedVariant = fetchedProduct.selectedVariant;
+			    var selectedVariantImage = fetchedProduct.selectedVariantImage;
+			    var currentOptions = fetchedProduct.options;
 
-			$('.sh-title').html(fetchedProduct.title);
+				$(container_selector + '.sh-images-main').html('<img alt="' + fetchedProduct.title + '" id="sh-product-main-image" class="product-image" src="' + selectedVariantImage.src + '" data-zoom-image="' + selectedVariantImage.src + '" >');
 
-			var compareAtPrice = "";
-			if(selectedVariant.compareAtPrice != null){
-				compareAtPrice = ' <strike><sup>' + selectedVariant.compareAtPrice + '</sup></strike>';
-			}
+				$(container_selector + '.sh-title').html(fetchedProduct.title);
 
-			$('.sh-price').html(selectedVariant.formattedPrice 
-				+ compareAtPrice);
-			$('.sh-variant-types').html(generateSelectors(fetchedProduct));
-			$('.sh-content-body').html(fetchedProduct.description);
+				var compareAtPrice = "";
+				if(selectedVariant.compareAtPrice != null){
+					compareAtPrice = ' <strike><sup>' + selectedVariant.compareAtPrice + '</sup></strike>';
+				}
 
-			var productImages = "";
-			fetchedProduct.images.forEach(function(image){
-				productImages += '<div class="product-image-item"><img alt="' + fetchedProduct.title + '" src="' + image.src + '" ></div>'
+				$(container_selector + '.sh-price').html(selectedVariant.formattedPrice 
+					+ compareAtPrice);
+				$(container_selector + '.sh-variant-types').html(generateSelectors(fetchedProduct));
+				$(container_selector + '.sh-content-body').html(fetchedProduct.description);
+
+				var productImages = "";
+				fetchedProduct.images.forEach(function(image){
+					productImages += '<div class="product-image-item"><img alt="' + fetchedProduct.title + '" src="' + image.src + '" ></div>'
+				});
+				productImages += '<div class="clearfix"></div>';
+				$(container_selector + '.sh-images-gallery').html(productImages);
+	    
+			    updateProductTitle(fetchedProduct.title);
+			    updateVariantImage(selectedVariantImage);
+			    updateVariantTitle(selectedVariant);
+			    updateVariantPrice(selectedVariant);
+			    attachOnVariantSelectListeners(fetchedProduct);
+			    updateCartTabButton();
+			    bindEventListeners(fetchedProduct, true);
+
+				initializeVariantButtons(fetchedProduct);
+				if(!fetchedProduct.selectedVariant.available){
+					toggleBindBuyButton(false);
+				}
+
+			    product = fetchedProduct;
 			});
-			productImages += '<div class="clearfix"></div>';
-			$('.sh-images-gallery').html(productImages);
-    
-		    updateProductTitle(fetchedProduct.title);
-		    updateVariantImage(selectedVariantImage);
-		    updateVariantTitle(selectedVariant);
-		    updateVariantPrice(selectedVariant);
-		    attachOnVariantSelectListeners(fetchedProduct);
-		    updateCartTabButton();
-		    bindEventListeners(fetchedProduct, true);
+		}
 
-			initializeVariantButtons(fetchedProduct);
-			if(!fetchedProduct.selectedVariant.available){
-				toggleBindBuyButton(false);
-			}
-
-		    product = fetchedProduct;
-		});
 	});
 }
 
 
 // Get info of Shopify product
 // ============================================================================================================
-function shopify_info_product(product_id){
+function shopify_info_product(){
 	jQuery(function ($) { 
 
-		client.fetchProduct(product_id).then(function(fetchedProduct) {
-		    var selectedVariant = fetchedProduct.selectedVariant;
-		    var selectedVariantImage = fetchedProduct.selectedVariantImage;
+		var $selectors = $('.shopify-info-cell');
 
-			$('#sh-i-product-' + product_id).find('.sh-i-product-image').html('<img alt="' + fetchedProduct.title + '" src="' + selectedVariantImage.src + '" >');
+		var i = 0;
+		var ids = [];
 
-			$('#sh-i-product-' + product_id).find('.sh-i-product-title').html(fetchedProduct.title);
+		if($selectors.length){
+			$selectors.each(function(){
+				ids[i] = $(this).attr('data-product-id');
+				i++;
+			});
 
-			var compareAtPrice = "";
-			if(selectedVariant.compareAtPrice != null){
-				compareAtPrice = ' <strike><sup>' + selectedVariant.compareAtPrice + '</sup></strike>';
-			}
 
-			if(productIsAvailable(fetchedProduct)){
-				$('#sh-i-product-' + product_id).find('.sh-i-product-price').html(selectedVariant.formattedPrice + compareAtPrice);
-			} else {
-				$('#sh-i-link-' + product_id + ' .shopify-info-cell').addClass('disabled');				
-				$('#sh-i-product-' + product_id).find('.sh-i-product-price').html("Sold Out");
-			}
-		});
+			client.fetchQueryProducts({'product_ids' : ids}).then(function(p) {
+				for (var key in p) {
+					if (p.hasOwnProperty(key)) {
+
+						var fetchedProduct = p[key];
+
+						var product_selector = '#sh-i-product-' + fetchedProduct.id;
+
+					    var selectedVariant = fetchedProduct.selectedVariant;
+					    var selectedVariantImage = fetchedProduct.selectedVariantImage;
+
+						$(product_selector).find('.sh-i-product-image').html('<img alt="' + fetchedProduct.title + '" src="' + selectedVariantImage.src + '" >');
+
+						$(product_selector).find('.sh-i-product-title').html(fetchedProduct.title);
+
+						var compareAtPrice = "";
+						if(selectedVariant.compareAtPrice != null){
+							compareAtPrice = ' <strike><sup>' + selectedVariant.compareAtPrice + '</sup></strike>';
+						}
+
+						if(productIsAvailable(fetchedProduct)){
+							$(product_selector).find('.sh-i-product-price').html(selectedVariant.formattedPrice + compareAtPrice);
+						} else {
+							$('#sh-i-link-' + fetchedProduct.id + ' .shopify-info-cell').addClass('disabled');				
+							$(product_selector).find('.sh-i-product-price').html("Sold Out");
+						}
+
+					}	
+				}
+			});
+		}
+
 	});
 }
 

@@ -17,9 +17,9 @@ require_once('shortcodes.php');
 function ssp_enqueued_assets() {
 	wp_enqueue_style( 'ssp-shopify-styles',  plugin_dir_url( __FILE__ ) . 'public/css/shopify-styles.css' );
 
-	wp_enqueue_script( 'ssp-shopify-cdn',  '//sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js', array( 'jquery' ) );
-	wp_enqueue_script( 'bts-button',  plugin_dir_url( __FILE__ ) . 'public/js/button.js', false );
-	wp_enqueue_script( 'ssp-shopify-scripts',  plugin_dir_url( __FILE__ ) . 'public/js/shopify-scripts.js', array( 'jquery' ), '1.0' );
+	wp_enqueue_script( 'ssp-shopify-cdn',  '//sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js', array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'bts-button',  plugin_dir_url( __FILE__ ) . 'public/js/button.js', false, '1.0', true );
+	wp_enqueue_script( 'ssp-shopify-scripts',  plugin_dir_url( __FILE__ ) . 'public/js/shopify-scripts.js', array( 'jquery', 'ssp-shopify-cdn' ), '1.0', true );
 
     wp_localize_script('ssp-shopify-scripts', 'sspVars', array(
         'apiKey'                => get_option('ssp_access_token'),
@@ -37,22 +37,17 @@ function ssp_admin_enqueued_assets() {
     wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'ssp-js-tabed-admin-menu', plugin_dir_url( __FILE__ ) . 'public/js/tabed-admin-menu.js', array( 'jquery' ), '1.0.0', true );
 	
-    wp_register_script( 'ssp-shopify-sdk', '//sdks.shopifycdn.com/js-buy-sdk/latest/shopify-buy.polyfilled.globals.min.js', 'jquery', '1.0' );
-	wp_register_script( 'ssp-js-shopify-refresh', plugin_dir_url( __FILE__ ) . 'public/js/shopify-refresh.js', array( 'jquery' ), '1.0' );
+    wp_enqueue_script( 'ssp-shopify-sdk', '//sdks.shopifycdn.com/js-buy-sdk/latest/shopify-buy.polyfilled.globals.min.js', 'jquery', '1.0', true );
+	wp_enqueue_script( 'ssp-js-shopify-refresh', plugin_dir_url( __FILE__ ) . 'public/js/shopify-refresh.js', array( 'jquery', 'ssp-shopify-sdk' ), '1.0', true );
     
-    if ( is_admin() ) {
-        wp_enqueue_script('ssp-shopify-sdk');
-        wp_enqueue_script('ssp-js-shopify-refresh', array('jquery', 'shopify-sdk'));
-
-        wp_localize_script('ssp-js-shopify-refresh', 'sspVars', array(
-            'apiKey'                => get_option('ssp_access_token'),
-            'domain'                => remove_protocol(get_option('ssp_shop_url')),
-            'appId'                 => get_option('ssp_app_id'),
-            'processLink'           => get_admin_url(null, '/admin-ajax.php?action=wps_process_product'),
-            'getAllProductsLink'    => get_admin_url(null, '/admin-ajax.php?action=wps_get_all_products'),
-            'removeOldProductsLink' => get_admin_url(null, '/admin-ajax.php?action=wps_remove_products')
-        ));
-    }
+    wp_localize_script('ssp-js-shopify-refresh', 'sspVars', array(
+        'apiKey'                => get_option('ssp_access_token'),
+        'domain'                => remove_protocol(get_option('ssp_shop_url')),
+        'appId'                 => get_option('ssp_app_id'),
+        'processLink'           => get_admin_url(null, '/admin-ajax.php?action=wps_process_product'),
+        'getAllProductsLink'    => get_admin_url(null, '/admin-ajax.php?action=wps_get_all_products'),
+        'removeOldProductsLink' => get_admin_url(null, '/admin-ajax.php?action=wps_remove_products')
+    ));
 }
 
 add_action( 'admin_enqueue_scripts', 'ssp_admin_enqueued_assets' );

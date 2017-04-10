@@ -7,10 +7,6 @@
 function sc_shopify_basic_product($atts) {
 	return 
 	'
-	<script type="text/javascript">
-		var product = shopify_basic_product('. $atts['product_id'] .');
-	</script>
-
 	<div class="shopify-basic-container row">
 		<div id="sh-product-id" class="hidden">'. $atts['product_id'] .'</div>
 		<div id="sh-product-'. $atts['product_id'] .'" class="shopify-product col-lg-12">
@@ -43,11 +39,7 @@ add_shortcode( 'shopify_basic_product', 'sc_shopify_basic_product' );
 function sc_shopify_info_product($atts) {
 	return 
 	'
-	<div class="shopify-info-cell ' . ($atts['swipe'] == "true" ? '' : 'col-md-3 col-sm-6' ) .'">
-		<script type="text/javascript">
-			var product = shopify_info_product('. $atts['product_id'] .');
-		</script>
-
+	<div class="shopify-info-cell ' . ($atts['swipe'] == "true" ? '' : 'col-md-3 col-sm-6' ) .'" data-product-id="'. $atts['product_id'] .'" >
 		<div id="sh-i-product-'. $atts['product_id'] .'" data-product-id="'. $atts['product_id'] .'" >
 			<div class="sh-i-product-image center-text"></div>
 			<h3 class="sh-i-product-title center-text"></h3>

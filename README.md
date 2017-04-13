@@ -16,6 +16,78 @@ Note: You must have `Font Awesome` to get the `fa-shopping-cart` icon.
 </button>
 ```
 
+### Shopify Cart
+To get a Shopify Cart where to see all products added to cart, you can insert this code on the place of your preference. It's a good practice to locate it just next to the open `<body>` HTML tag:
+
+```html
+
+<!-- Shopify Cart HTML -->
+<!-- ================================================================================== -->
+
+<!-- .cart begin -->
+<div class="cart">
+
+<!-- .cart-section begin // cart header -->
+<div class="cart-section cart-section--top">
+	<h2 class="cart-title">Your cart</h2>
+	<button class="btn--close">
+		<span aria-role="hidden">×</span>
+		<span class="visuallyhidden">Close</span>
+	</button>
+</div>
+<!-- .cart-section end -->
+
+<!-- .cart-form begin // cart body -->
+<div class="cart-form">
+	<div class="cart-item-container cart-section">
+	</div>
+	<!-- .cart-bottom begin -->
+	<div class="cart-bottom">
+		<div class="cart-info clearfix cart-section">
+			<div class="type--caps cart-info__total cart-info__small">Total</div>
+			<div class="cart-info__pricing">
+				<span class="cart-info__small cart-info__total">CAD</span>
+				<span class="pricing pricing--no-padding"></span>
+			</div>
+		</div>
+		<div class="cart-actions-container cart-section type--center">
+			<div class="cart-discount-notice cart-info__small">Shipping and discount codes are added at checkout.</div>
+			<input type="submit" class="btn--cart-checkout" id="checkout" name="checkout" value="Checkout">
+		</div>
+	</div>
+	<!-- .cart-bottom end -->
+</div>
+<!-- .cart-form end -->
+
+</div>
+<!-- .cart end -->
+
+<script id="CartItemTemplate" type="text/template">
+	<div class="cart-item">
+		<div id="cart-item-id" class="hidden"></div>
+		<div class="cart-item__img"></div>
+		<div class="cart-item__content">
+			<div class="cart-item__content-row">
+				<div class="cart-item__variant-title"></div>
+				<span class="cart-item__title"></span>
+			</div>
+			<div class="cart-item__content-row">
+				<div class="cart-item__quantity-container">
+					<button class="btn--seamless quantity-decrement" type="button"><span>-</span><span class="visuallyhidden"><!-- Decrement --></span></button>
+					<input class="cart-item__quantity" type="number" min="0" aria-label="Quantity">
+					<button class="btn--seamless quantity-increment" type="button"><span>+</span><span class="visuallyhidden"><!-- Increment --></span></button>
+				</div>
+				<span class="cart-item__price"></span>
+			</div>
+		</div>
+	</div>
+</script>
+
+<!-- END - Shopify Cart HTML -->
+<!-- ================================================================================== -->
+
+```
+
 ### Settings
 
 You can access to the Smart Shopify Product setting through the **S. Shopify Product** item menu in the Wordpress admin menu.

@@ -106,11 +106,22 @@ function shopify_basic_product(){
 					toggleBindBuyButton(false);
 				}
 
+
 			    product = fetchedProduct;
 			});
 		}
 
 	});
+}
+
+function rondomizeSrcImage(srcImage) {
+	var parts = srcImage.split('?');
+	if(parts.length > 1){
+		parts[1] += "&rdm=" + Math.floor((Math.random() * 999999) + 1).toString();
+		return parts.join('?');
+	} else {
+		return parts[0] + "?rdm=" + Math.floor((Math.random() * 999999) + 1).toString();
+	}
 }
 
 

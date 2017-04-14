@@ -405,7 +405,7 @@ function bindEventListeners(product, is_product_page = false) {
 
 			/* checkout button click listener */
 			$('.btn--cart-checkout').on('click', function () {
-				window.open(cart.checkoutUrl, '_blank'/*, 'location=yes,height=570,width=520,scrollbars=yes,status=yes'*/);
+				window.open(cart.checkoutUrl, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
 			});
 
 			/* increment quantity click listener */

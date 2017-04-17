@@ -321,20 +321,20 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .sh-title {
-	font-size: 42px;
+	font-size: 34px;
 	font-weight: 600;
 	color: #1A3556;
 }
 
 .variant-title {
 	content: "dsfgsdf";
-	font-size: 22px;
+	font-size: 18px;
 	font-weight: 500;
 	color: #1A3556;
 }
 
 .sh-price {
-	font-size: 32px;
+	font-size: 22px;
 	font-weight: 400;
 	color: #1A3556;
 }
@@ -367,7 +367,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .sh-content-body {
 	color: #1a3556;
-	font-size: 26px;
+	font-size: 20px;
 	font-weight: 300;
 	margin-top: 30px;
 }

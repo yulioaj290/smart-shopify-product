@@ -33,20 +33,26 @@ function sc_shopify_basic_product($atts) {
 add_shortcode( 'shopify_basic_product', 'sc_shopify_basic_product' );
 
 
-// Alow to insert a Shopify product Buy Info using [shopify_info_product product_id="ID"] shortcode
-// =======================================================================================================
+// Allow to insert a Shopify product Buy Info using [shopify_info_product product_id="ID" product_link="src_of_product_detail" swipe="false"] shortcode
+// ======================================================================================================================================================
 
 function sc_shopify_info_product($atts) {
 	return 
 	'
 	<div class="shopify-info-cell ' . ($atts['swipe'] == "true" ? '' : 'col-md-3 col-sm-6' ) .'" data-product-id="'. $atts['product_id'] .'" >
-		<div id="sh-i-product-'. $atts['product_id'] .'" data-product-id="'. $atts['product_id'] .'" >
+		<a class="sh-i-product-info" href="' . $atts['product_link'] . '" id="sh-i-product-'. $atts['product_id'] .'" data-product-id="'. $atts['product_id'] .'" >
 			<div class="sh-i-product-image center-text"></div>
 			<h3 class="sh-i-product-title center-text"></h3>
 			<p class="sh-i-product-price center-text"></p>
-		</div>
-	</div>
-	';
+		</a>' .
+
+		($atts['buy-button'] == "true" ? 
+	   '<p class="sh-i-buy-button center-text">
+			<button id="sh-i-buy-button-'. $atts['product_id'] .'" class="buy-now-button">Buy Now</button>
+		</p>' 
+		: "")
+
+. '	</div>';
 }
 add_shortcode( 'shopify_info_product', 'sc_shopify_info_product' );
 

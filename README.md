@@ -3,7 +3,7 @@ This Wordpress plugin allows add some shortcodes on post to insert Shopify produ
 
 ### Shortcodes
 * **[shopify_basic_product product_id="ID"]:** Allows to insert all product basic information and an **add to cart** button. This last, change its appearance accordingly the choices of the product variants that customers selects. this view is ideal for a product detail page.
-* **[shopify_info_product product_id="ID"]:** Insert a basic product card with the main image, title and price. Ideal for a collection page.
+* **[shopify_info_product product_id="ID" product_link="src_of_product_detail"]:** Insert a basic product card with the main image, title and price. Ideal for a collection page.
 
 ### Button for shopping cart
 To get access to the shopping cart you can insert this code on the place of your preference:

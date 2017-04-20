@@ -434,6 +434,10 @@ input[type=number]::-webkit-outer-spin-button {
 	margin: 15px 0;
 }
 
+.sh-i-product-info {
+
+}
+
 .shopify-info-cell {
 	transition: all 0.3s ease 0s;
 	padding: 10px 0;
@@ -460,7 +464,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .sh-i-product-image > img.sh-i-img-center {
 	margin: auto;
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -479,6 +483,20 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: 300;
     line-height: 1;
     color: #222;
+}
+
+.shopify-info-cell .buy-now-button {
+	background-color: #fff;
+	color: #1A3556;
+	border: 1px #1A3556 solid;
+	padding: 5px 25px;
+	font-size: 14px;
+	transition: all 0.3s ease 0s;
+}
+
+.shopify-info-cell .buy-now-button:hover {
+	background-color: #93D6EC;
+	color: #fff;
 }
 
 @media (max-width: 1199px) {

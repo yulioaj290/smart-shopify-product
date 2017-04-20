@@ -162,11 +162,28 @@ function shopify_info_product(){
 							compareAtPrice = ' <strike><sup>' + selectedVariant.compareAtPrice + '</sup></strike>';
 						}
 
+						var buyNowButton = $(product_selector).parent().find('.buy-now-button');
+
 						if(productIsAvailable(fetchedProduct)){
 							$(product_selector).find('.sh-i-product-price').html(selectedVariant.formattedPrice + compareAtPrice);
+
+							// If buy now button exist
+							if(buyNowButton.length){
+
+								buyNowButton.bind('click', function(evt){
+									fetchedProduct.selectedVariant = changeSelectedVariantOfProduct(fetchedProduct);
+									prepareBuyNowClickHandler(fetchedProduct);
+									buyButtonClickHandler(evt);
+								});
+							}
 						} else {
 							$('#sh-i-link-' + fetchedProduct.id + ' .shopify-info-cell').addClass('disabled');				
 							$(product_selector).find('.sh-i-product-price').html("Sold Out");
+
+							// If buy now button exist
+							if(buyNowButton.length){
+								buyNowButton.remove();
+							}
 						}
 
 					}	
@@ -246,6 +263,26 @@ function productIsAvailable(product) {
 	});
 
 	return productAvailable;
+}
+
+/* Change the selected variant of the product
+============================================================ */
+function changeSelectedVariantOfProduct(product) {
+	product.options.map(function(option) {
+		option.values.forEach(function(value) {
+
+			product.variants.forEach(function(variant){
+				variant.optionValues.forEach(function(optionVal) {
+					if(optionVal.name === option.name && optionVal.value === value && variant.available === true){
+						return variant;
+					}
+				});
+			});
+
+		});
+	});
+
+	return false;
 }
 
 
@@ -497,6 +534,30 @@ function buyButtonClickHandler(evt) {
 		setPreviousFocusItem(evt.target);
 		$('#checkout').focus();
 	});
+}
+
+/* Attach and control listeners onto buy now button
+============================================================ */
+function prepareBuyNowClickHandler(fetchedProduct) {
+	
+    var selectedVariant = fetchedProduct.selectedVariant;
+    var selectedVariantImage = fetchedProduct.selectedVariantImage;
+    var currentOptions = fetchedProduct.options;
+
+    updateProductTitle(fetchedProduct.title);
+    updateVariantImage(selectedVariantImage);
+    updateVariantTitle(selectedVariant);
+    updateVariantPrice(selectedVariant);
+    // attachOnVariantSelectListeners(fetchedProduct);
+    updateCartTabButton();
+    bindEventListeners(fetchedProduct, true);
+
+	// initializeVariantButtons(fetchedProduct);
+	// if(!fetchedProduct.selectedVariant.available){
+	// 	toggleBindBuyButton(false);
+	// }
+
+    product = fetchedProduct;
 }
 
 

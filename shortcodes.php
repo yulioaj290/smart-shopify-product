@@ -48,7 +48,7 @@ function sc_shopify_info_product($atts) {
 
 		($atts['buy-button'] == "true" ? 
 	   '<p class="sh-i-buy-button center-text">
-			<button id="sh-i-buy-button-'. $atts['product_id'] .'" class="buy-now-button">Buy Now</button>
+			<button id="sh-i-buy-button-'. $atts['product_id'] .'" class="buy-now-button js-prevent-cart-listener">Buy Now</button>
 		</p>' 
 		: "")
 

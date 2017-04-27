@@ -7,7 +7,7 @@ jQuery(document).ready(function ($) {
 //	Creating client for Shopify API
 var client = ShopifyBuy.buildClient({
 	    accessToken: sspVars.apiKey,	//	Random API Key number of the Shopify App
-	    apiKey: sspVars.apiKey, 		// 	Same obove [Deprecated]
+	    // apiKey: sspVars.apiKey, 		// 	Same obove [Deprecated]
 	    domain: sspVars.domain, 		//	Domain of Shopify Store [my-shopify.shopify.com]
 	    appId: sspVars.appId			//	App ID [6]
 	});
@@ -166,7 +166,8 @@ function shopify_info_product(){
 					    var selectedVariant = fetchedProduct.selectedVariant;
 					    var selectedVariantImage = fetchedProduct.selectedVariantImage;
 
-						$(product_selector).find('.sh-i-product-image').html('<img alt="' + fetchedProduct.title + '" src="' + selectedVariantImage.src + '" >');
+						$(product_selector).find('.sh-i-product-image').css('background-image', 'url(' + selectedVariantImage.src + ')');
+						$(product_selector).find('.sh-i-product-image').attr('alt', fetchedProduct.title);
 
 						$(product_selector).find('.sh-i-product-title').html(fetchedProduct.title);
 
@@ -211,7 +212,7 @@ function generateSelectors(product) {
 
 	var elements = product.options.map(function(option) {
 		if(option.name != "Title"){
-			var sh_options = '<div id="sh-radio-options" class="btn-group" data-toggle="buttons">';
+			var sh_options = '<div><div id="sh-radio-options" class="btn-group" data-toggle="buttons">';
 			sh_options += '<spam class="sh-radio-title">' + option.name + '</spam>';
 
 			option.values.forEach(function(value) {
@@ -244,7 +245,7 @@ function generateSelectors(product) {
 			});
 
 
-			sh_options += '</div>';
+			sh_options += '</div></div>';
 
 			return sh_options;
 		}
@@ -387,16 +388,21 @@ function initializeVariantButtons(fetchedProduct){
 
 /* Bind/Unbind click event on Buy Button
 ============================================================ */
-function toggleBindBuyButton(enabling, cart = true){
+function toggleBindBuyButton(enabling, cart){
 	jQuery(function ($) { 
-		if(enabling){
-			$('.buy-button').bind('click', buyButtonClickHandler);
-			$('.buy-button').removeClass('disabled');
-			$('.buy-button').text('Add To Cart');
-		} else {
-			$('.buy-button').unbind('click');
-			$('.buy-button').addClass('disabled');
-			$('.buy-button').text(cart ? 'Sold Out' : 'Not Available');
+		// Assign default parameter value
+		cart = typeof cart !== 'undefined' ? cart : true;
+
+		if($('.buy-button').length){
+			if(enabling){
+				$('.buy-button').bind('click', buyButtonClickHandler);
+				$('.buy-button').removeClass('disabled');
+				$('.buy-button').text('Add To Cart');
+			} else {
+				$('.buy-button').unbind('click');
+				$('.buy-button').addClass('disabled');
+				$('.buy-button').text(cart ? 'Sold Out' : 'Not Available');
+			}
 		}
 	});
 }
@@ -420,8 +426,10 @@ function updateCartTabButton() {
 
 /* Bind Event Listeners
 ============================================================ */
-function bindEventListeners(product, is_product_page = false) {
+function bindEventListeners(product, is_product_page) {
 	jQuery(function ($) { 
+		// Assign default parameter value
+		is_product_page = typeof is_product_page !== 'undefined' ? is_product_page : false;
 
 		if(!is_product_page){
 

@@ -308,6 +308,9 @@ input[type=number]::-webkit-outer-spin-button {
 	width: 100%;
 	overflow: hidden;
 }
+.sh-images-main:hover {
+	cursor: crosshair;
+}
 
 .sh-images-main > img {
 	width: auto;
@@ -321,33 +324,33 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .sh-title {
-	font-size: 34px;
+	font-size: 28px;
 	font-weight: 600;
 	color: #1A3556;
 }
 
 .variant-title {
 	content: "dsfgsdf";
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: 500;
 	color: #1A3556;
 }
 
 .sh-price {
-	font-size: 22px;
+	font-size: 18px;
 	font-weight: 400;
 	color: #1A3556;
 }
 
 .sh-variant-types {
-
+	text-align: center;
 }
 
 .sh-add-cart > .buy-button {
 	background-color: #fff;
 	color: #1A3556;
 	border: 1px #1A3556 solid;
-	padding: 12px 60px;
+	padding: 8px 40px;
 	font-size: 18px;
 	transition: all 0.3s ease 0s;
 }
@@ -367,7 +370,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .sh-content-body {
 	color: #1a3556;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 300;
 	margin-top: 30px;
 }
@@ -377,7 +380,7 @@ input[type=number]::-webkit-outer-spin-button {
     display: block;
     font-size: 10px;
     font-weight: 400;
-    margin: 8px 5px 0;
+    margin: 5px 5px 0;
     text-align: center;
 }
 
@@ -387,6 +390,7 @@ input[type=number]::-webkit-outer-spin-button {
 	border: 1px #1A3556 solid;
 	border-radius: 0;
 	margin: 0 5px 0;
+	padding: 5px 15px !important;
 }
 
 .sh-variant-types .sh-radio-item-label:hover {
@@ -415,10 +419,17 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .sh-images-gallery > .product-image-item {
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 	float: left;
 	margin: 0 15px;
+	border: 2px solid transparent;
+	transition: all 0.3s ease 0s;
+}
+
+.sh-images-gallery > .product-image-item:hover {
+	border: 2px solid #93D6EC;
+	cursor: pointer;
 }
 
 .sh-images-gallery > .product-image-item img {
@@ -441,6 +452,8 @@ input[type=number]::-webkit-outer-spin-button {
 .shopify-info-cell {
 	transition: all 0.3s ease 0s;
 	padding: 10px 0;
+	height: auto;
+	margin-bottom: 25px;
 }
 
 .sh-i-link:hover .shopify-info-cell {
@@ -460,9 +473,24 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 0 20px;
     position: relative;
     overflow: hidden;
+    height: 230px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.sh-i-product-image > img.sh-i-img-center {
+/*.sh-i-product-image > img.sh-i-img-center {
+	margin: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+	bottom: 0;
+}*/
+
+.sh-i-product-image > img {
+	height: auto !important;
+	width: auto !important;
 	margin: auto;
     position: relative;
     top: 0;
@@ -473,16 +501,18 @@ input[type=number]::-webkit-outer-spin-button {
 
 .sh-i-product-title {
 	color: #222;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 400;
+    margin: 12px 0 5px;
 }
 
 .sh-i-product-price,
 .sh-i-link .sh-i-product-price {
-	font-size: 20px;
+	font-size: 16px;
     font-weight: 300;
     line-height: 1;
     color: #222;
+    margin: 0 0 12px;
 }
 
 .shopify-info-cell .buy-now-button {
@@ -499,6 +529,13 @@ input[type=number]::-webkit-outer-spin-button {
 	color: #fff;
 }
 
+@media (max-width: 1249px) {
+	
+	.sh-i-product-image {
+		height: 190px;
+	}
+}
+
 @media (max-width: 1199px) {
 
 	.sh-images-main {
@@ -509,6 +546,24 @@ input[type=number]::-webkit-outer-spin-button {
 		width: 80px;
 		height: 80px;
 		margin: 0 6px;
+	}
+
+	.sh-i-product-image {
+		height: 180px;
+	}
+}
+
+@media (max-width: 989px) {
+	
+	.sh-i-product-image {
+		height: 300px;
+	}
+}
+
+@media (max-width: 979px) {
+	
+	.sh-i-product-image {
+		height: 230px;
 	}
 }
 
@@ -530,5 +585,13 @@ input[type=number]::-webkit-outer-spin-button {
 	    height: 76px;
 	    margin: 0 2px;
 	    width: 76px;
+	}
+
+	.shopify-info-cell {
+		
+	}
+
+	.sh-i-product-image {
+		
 	}
 }

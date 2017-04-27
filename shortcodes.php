@@ -41,9 +41,9 @@ function sc_shopify_info_product($atts) {
 	'
 	<div class="shopify-info-cell ' . ($atts['swipe'] == "true" ? '' : 'col-md-3 col-sm-6' ) .'" data-product-id="'. $atts['product_id'] .'" >
 		<a class="sh-i-product-info" href="' . $atts['product_link'] . '" id="sh-i-product-'. $atts['product_id'] .'" data-product-id="'. $atts['product_id'] .'" >
-			<div class="sh-i-product-image center-text"></div>
-			<h3 class="sh-i-product-title center-text"></h3>
-			<p class="sh-i-product-price center-text"></p>
+			<div class="sh-i-product-image center-text" style="background-image: url(http://localhost/Pruebas/assets/images/eyeglases.jpg)"></div>
+			<h3 class="sh-i-product-title center-text">Title of the product</h3>
+			<p class="sh-i-product-price center-text">$00.00</p>
 		</a>' .
 
 		($atts['buy-button'] == "true" ? 

@@ -254,4 +254,15 @@ function auto_import_shopify_products($id, $title){
 
 	}
 }
+ 
+// Deactivate iPhone auto detection of telephone numbers
+// ======================================================================================================
+add_action('wp_head', 'deactivateIphoneAutoDetection');
+function deactivateIphoneAutoDetection(){
+    ?>
+	<meta name="format-detection" content="telephone=no">
+    <?php 
 
+     // <!-- Use phone links to explicitly create a link. -->
+     // <p>A phone number: <a href="tel:1-408-555-5555">1-408-555-5555</a></p>
+}

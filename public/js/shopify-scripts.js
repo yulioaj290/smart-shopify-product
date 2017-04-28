@@ -106,7 +106,6 @@ function shopify_basic_product(){
 				fetchedProduct.images.forEach(function(image){
 					productImages += '<div class="product-image-item"><img alt="' + fetchedProduct.title + '" src="' + image.src + '" ></div>'
 				});
-				productImages += '<div class="clearfix"></div>';
 				$(container_selector + '.sh-images-gallery').html(productImages);
 	    
 			    updateProductTitle(fetchedProduct.title);

@@ -323,6 +323,10 @@ input[type=number]::-webkit-outer-spin-button {
     top: 0;
 }
 
+.shopify-basic-container .sh-info {
+	padding-top: 60px;
+}
+
 .sh-title {
 	font-size: 28px;
 	font-weight: 600;
@@ -421,7 +425,7 @@ input[type=number]::-webkit-outer-spin-button {
 .sh-images-gallery > .product-image-item {
 	width: 80px;
 	height: 80px;
-	float: left;
+	display: inline-block;
 	margin: 0 15px;
 	border: 2px solid transparent;
 	transition: all 0.3s ease 0s;

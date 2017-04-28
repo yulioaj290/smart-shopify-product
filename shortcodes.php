@@ -10,7 +10,7 @@ function sc_shopify_basic_product($atts) {
 	<div class="shopify-basic-container row">
 		<div id="sh-product-id" class="hidden">'. $atts['product_id'] .'</div>
 		<div id="sh-product-'. $atts['product_id'] .'" class="shopify-product col-lg-12">
-			<div class="sh-images center-text col-md-7">
+			<div class="sh-images center-text col-md-5 col-md-offset-1">
 				<div class="sh-images-main" id="sh-images-main">
 				</div>
 				<div class="sh-images-gallery">

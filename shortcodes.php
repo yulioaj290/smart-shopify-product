@@ -39,7 +39,7 @@ add_shortcode( 'shopify_basic_product', 'sc_shopify_basic_product' );
 function sc_shopify_info_product($atts) {
 	return 
 	'
-	<div class="shopify-info-cell ' . ($atts['swipe'] == "true" ? '' : 'col-md-3 col-sm-6' ) .'" data-product-id="'. $atts['product_id'] .'" >
+	<div class="shopify-info-cell ' . ($atts['swipe'] == "true" ? '' : 'card-col-md-3 card-col-sm-6' ) .'" data-product-id="'. $atts['product_id'] .'" >
 		<a class="sh-i-product-info" href="' . $atts['product_link'] . '" id="sh-i-product-'. $atts['product_id'] .'" data-product-id="'. $atts['product_id'] .'" >
 			<div class="sh-i-product-image center-text" style="background-image: url(http://localhost/Pruebas/assets/images/eyeglases.jpg)"></div>
 			<h3 class="sh-i-product-title center-text">Title of the product</h3>

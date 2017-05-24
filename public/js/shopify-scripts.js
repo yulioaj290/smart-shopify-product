@@ -825,3 +825,5 @@ function formatAsMoney(amount, currency, thousandSeparator, decimalSeparator, lo
 	.replace(regex, '$1' + thousandSeparator)
 	.toString();
 }
+
+

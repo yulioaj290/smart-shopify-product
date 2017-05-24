@@ -88,7 +88,7 @@ function shopify_basic_product(){
 			    var selectedVariantImage = fetchedProduct.selectedVariantImage;
 			    var currentOptions = fetchedProduct.options;
 
-				$(container_selector + '.sh-images-main').html('<img alt="' + fetchedProduct.title + '" id="sh-product-main-image" class="product-image" src="' + selectedVariantImage.src + '" data-zoom-image="' + selectedVariantImage.src + '" >');
+				$(container_selector + '.sh-images-main').html('<img alt="' + fetchedProduct.title + '" id="sh-product-main-image" class="product-image" src="' + selectedVariantImage.src + '" data-zoom-image="' + selectedVariantImage.src + '" />');
 
 				$(container_selector + '.sh-title').html(fetchedProduct.title);
 
@@ -97,9 +97,16 @@ function shopify_basic_product(){
 					compareAtPrice = ' <strike><sup>' + selectedVariant.compareAtPrice + '</sup></strike>';
 				}
 
-				$(container_selector + '.sh-price').html(selectedVariant.formattedPrice 
-					+ compareAtPrice);
-				$(container_selector + '.sh-variant-types').html(generateSelectors(fetchedProduct));
+				$price_tag = $(container_selector + '.sh-price');
+				if($price_tag.length && !$price_tag.hasClass('setted')){
+					$price_tag.html(selectedVariant.formattedPrice + compareAtPrice);
+				}
+
+				$variants_tag = $(container_selector + '.sh-variant-types');
+				if($variants_tag.length){
+					$variants_tag.html(generateSelectors(fetchedProduct));
+				}
+
 				$(container_selector + '.sh-content-body').html(fetchedProduct.description);
 
 				var productImages = "";
@@ -176,7 +183,12 @@ function shopify_info_product(){
 						}
 
 						if(productIsAvailable(fetchedProduct)){
-							$(product_selector).find('.sh-i-product-price').html(selectedVariant.formattedPrice + compareAtPrice);
+							$price_tag = $(product_selector).find('.sh-i-product-price');
+							
+							if($price_tag.length && !$price_tag.hasClass('setted')){
+								$price_tag.html(selectedVariant.formattedPrice + compareAtPrice);
+							}
+
 						} else {
 							$('#sh-i-link-' + fetchedProduct.id + ' .shopify-info-cell').addClass('disabled');				
 							$(product_selector).find('.sh-i-product-price').html("Sold Out");

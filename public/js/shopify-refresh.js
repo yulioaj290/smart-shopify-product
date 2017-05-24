@@ -175,6 +175,11 @@ var wshopRefresh = {
 }
 
 jQuery(document).ready(function($){
+    
+    $('#ssp_admin_page .nav-tab-wrapper .nav-tab').on('click', function(){
+        $('#ssp_admin_page .nav-tab-wrapper .nav-tab.nav-tab-active').removeClass('nav-tab-active');
+        $(this).addClass('nav-tab-active');
+    });
 
     wshopRefresh.init();
 

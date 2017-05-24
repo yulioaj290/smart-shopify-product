@@ -3,7 +3,7 @@
  * Plugin Name: Smart Shopify Product
  * Plugin URI: https://github.com/yulioaj290/smart-shopify-product
  * Description: This plugin allows add some shortcodes on post to insert Shopify products. Also allow to retrieve automatically all products on the shopify store.
- * Version: 1.0.0
+ * Version: 1.0.2
  * Author: Yulio Aleman Jimenez
  * Author URI: https://www.linkedin.com/in/yulioaj290/
  * License: GPL2
@@ -66,13 +66,14 @@ function ssp_settings_page() {
 	}
    
    ?>
-	<div class="wrap">
+	<div id="ssp_admin_page" class="wrap">
 		<h2>Smart Shopify Product Settings</h2>
 		<hr>
 
 		<h2 class="nav-tab-wrapper">
 		      <a class="nav-tab nav-tab-active" href="#">Shopify API</a>
 		      <a class="nav-tab" href="#">Post Type of Product</a>
+		      <a class="nav-tab" href="#">Shopify fields options</a>
 		</h2>
 
 		<form method="post" action="options.php">
@@ -157,6 +158,69 @@ function ssp_settings_page() {
 
 				</section>
 
+				<section>
+					
+					<table class="form-table">
+
+						<tr valign="top">
+							<th scope="row">Show Shopify price field</th>
+							<td>
+								<input type="checkbox" value="1" <?php echo checked(get_option('ssp_shopify_field_price_show', 1), 1); ?> name="ssp_shopify_field_price_show" />
+								<br />
+								<small>
+									Mean that the price of Shopify products will be shown or not.
+								</small>
+							</td>
+						</tr>
+
+						<tr valign="top">
+							<th scope="row">Replacing text for Shopify price field</th>
+							<td>
+								<input type="text" name="ssp_shopify_field_price_text" size="100" value="<?php echo esc_attr( get_option('ssp_shopify_field_price_text', "") ); ?>" />
+								<br />
+								<small>
+									If it's not empty, the price of the Shopify products will be replaced with your replacing text. It's ideal when you don't want to show the prices to users. 
+								</small>
+							</td>
+						</tr>
+
+						<tr valign="top">
+							<th scope="row">Show card Buy Button</th>
+							<td>
+								<input type="checkbox" value="1" <?php echo checked(get_option('ssp_shopify_field_card_buy_btn', 1), 1); ?> name="ssp_shopify_field_card_buy_btn" size="100" />
+								<br />
+								<small>
+									If checked, the Buy Button will be shown on the product cards, for collection views or sections. 
+								</small>
+							</td>
+						</tr>
+
+						<tr valign="top">
+							<th scope="row">Show details page Buy Button</th>
+							<td>
+								<input type="checkbox" value="1" <?php echo checked(get_option('ssp_shopify_field_details_buy_btn', 1), 1); ?> name="ssp_shopify_field_details_buy_btn" size="100" />
+								<br />
+								<small>
+									If checked, the Buy Button will be shown on product detail pages. 
+								</small>
+							</td>
+						</tr>
+
+						<tr valign="top">
+							<th scope="row">Show Variant Options selector</th>
+							<td>
+								<input type="checkbox" value="1" <?php echo checked(get_option('ssp_shopify_field_variant_selector', 1), 1); ?> name="ssp_shopify_field_variant_selector" size="100" />
+								<br />
+								<small>
+									If checked, the selector of the Variant Options for Shopify products will be shown. 
+									<br /> <strong>Note:</strong> Be careful. If checked and the product that is currently shown has no items availables in stock for the first Variant Option, it will cause you not able to choice another variant to make shop.
+								</small>
+							</td>
+						</tr>
+					</table>
+
+				</section>
+
 	    	</div>
 
 			<?php submit_button(); ?>
@@ -210,6 +274,14 @@ function ssp_settings() {
    register_setting( 'smart-shopify-product-settings-group', 'ssp_app_id' );
    register_setting( 'smart-shopify-product-settings-group', 'ssp_product_post_type_slug' );
    register_setting( 'smart-shopify-product-settings-group', 'ssp_product_id_meta_slug' );
+
+   register_setting( 'smart-shopify-product-settings-group', 'ssp_shopify_field_price_show' );
+   register_setting( 'smart-shopify-product-settings-group', 'ssp_shopify_field_price_text' );
+   register_setting( 'smart-shopify-product-settings-group', 'ssp_shopify_field_card_buy_btn' );
+   register_setting( 'smart-shopify-product-settings-group', 'ssp_shopify_field_details_buy_btn' );
+   register_setting( 'smart-shopify-product-settings-group', 'ssp_shopify_field_variant_selector' );
+
+   // register_setting( 'smart-shopify-product-settings-group', 'ssp_product_id_meta_slug' );
 }
 
 add_action( 'admin_init', 'ssp_settings' );

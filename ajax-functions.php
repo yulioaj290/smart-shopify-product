@@ -1,16 +1,17 @@
 <?php
 
-
-
-// Define AJAX functions
-function wps_process_product(){
+/*
+===========================================================
+AUTO PROCESSING AND ADD ALL SHOPIFY PRODUCTS TO WORDPRESS SITE
+=========================================================== */
+function ssp_auto_process_product(){
 
     // Get the ID of the current Product
     $id = $_POST['product_id'];
     // Get the title of the current Product
     $title = $_POST['product_title'];
     // Get refresh options
-    $auto_publish = $_POST['auto_publish'] == 'true';
+    $auto_publish = $_POST['auto_publish'] == 'true' ? 'publish' : 'pending';
 
     $output = 'Error processing Product ' . $title . '!';
 
@@ -43,7 +44,7 @@ function wps_process_product(){
         $args = array(
             'post_title'    => $title,
             'post_type'     => get_option('ssp_product_post_type_slug'),
-            'post_status'   => $auto_publish ? 'publish' : 'pending',
+            'post_status'   => $auto_publish,
             'meta_input'    => array( get_option('ssp_product_id_meta_slug') => $id )
         );
         $post_id = wp_insert_post($args);
@@ -70,9 +71,12 @@ function wps_process_product(){
 
 }
 
-add_action('wp_ajax_wps_process_product', 'wps_process_product');
 
-function wps_get_all_products(){
+/*
+===========================================================
+AUTO GETTING ALL EXITING SHOPIFY PRODUCTS FROM WORDPRESS SITE
+=========================================================== */
+function ssp_auto_get_all_products(){
 
     // Get all Products
     $args = array(
@@ -98,9 +102,12 @@ function wps_get_all_products(){
 
 }
 
-add_action('wp_ajax_wps_get_all_products', 'wps_get_all_products');
 
-function wps_remove_products(){
+/*
+===========================================================
+AUTO REMOVING ALL OLD SHOPIFY PRODUCTS FROM WORDPRESS SITE
+=========================================================== */
+function ssp_auto_remove_products(){
 
     $posts_to_remove = explode(',', $_POST['to_remove']);
 
@@ -115,5 +122,15 @@ function wps_remove_products(){
 
 }
 
-add_action('wp_ajax_wps_remove_products', 'wps_remove_products');
- 
+
+
+/*
+===========================================================
+ACTION HOOKS
+=========================================================== */
+
+add_action('wp_ajax_wps_process_product', 'ssp_auto_process_product');
+add_action('wp_ajax_wps_get_all_products', 'ssp_auto_get_all_products');
+add_action('wp_ajax_wps_remove_products', 'ssp_auto_remove_products');
+
+/* ======================================================== */

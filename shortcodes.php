@@ -1,41 +1,44 @@
 <?php
 
+/*
+===========================================================
+INSERT A SHOPIFY PRODUCT WITH BUY BUTTON WITH SHORTCODE [shopify_basic_product product_id="ID"]
+=========================================================== */
 
-// Alow to insert a Shopify product Buy Button using [shopify_basic_product product_id="ID"] shortcode
-// =======================================================================================================
-
-function sc_shopify_basic_product_init() {
-    function sc_shopify_basic_product($atts) {
+function ssp_sc_shopify_basic_product_init()
+{
+    function ssp_sc_shopify_basic_product($atts)
+    {
         $price_setted = get_option('ssp_shopify_field_price_text', "") != "" ? ' setted' : '';
         $price_text = get_option('ssp_shopify_field_price_text', "") != "" ? get_option('ssp_shopify_field_price_text', "") : '$00.00';
         $price_tag = get_option('ssp_shopify_field_price_show', 1) != 1 ? '' : '<h3 class="sh-price' . $price_setted . '">' . $price_text . '</h3>';
 
         $variants_tag = get_option('ssp_shopify_field_variant_selector', 1) != 1 ? '' : '<div class="sh-variant-types"></div>';
 
-        $buy_button_tag = get_option('ssp_shopify_field_details_buy_btn', 1) != 1 ? '' : 
-                            '<div class="sh-add-cart">
-                                <button class="buy-button js-prevent-cart-listener">Add To Cart</button>
-                            </div>';
+        $buy_button_tag = get_option('ssp_shopify_field_details_buy_btn', 1) != 1 ? '' :
+            '<div class="sh-add-cart">
+                <button class="buy-button js-prevent-cart-listener">Add To Cart</button>
+            </div>';
 
-        return 
-        '
+        return
+            '
         <div class="shopify-basic-container row">
-            <div id="sh-product-id" class="hidden">'. $atts['product_id'] .'</div>
-            <div id="sh-product-'. $atts['product_id'] .'" class="shopify-product col-lg-12">
+            <div id="sh-product-id" class="hidden">' . $atts['product_id'] . '</div>
+            <div id="sh-product-' . $atts['product_id'] . '" class="shopify-product col-lg-12">
                 <div class="sh-images center-text col-md-5 col-md-offset-1">
                     <div class="sh-images-main" id="sh-images-main">
-                        <img id="sh-product-main-image" class="product-image" src="' . esc_url( plugins_url( 'public/img/placeholder.jpg', __FILE__ ) ) . '" data-zoom-image="' . esc_url( plugins_url( 'public/img/placeholder.jpg', __FILE__ ) ) . '" />
+                        <img id="sh-product-main-image" class="product-image" src="' . esc_url(plugins_url('public/img/placeholder.jpg', __FILE__)) . '" data-zoom-image="' . esc_url(plugins_url('public/img/placeholder.jpg', __FILE__)) . '" />
                     </div>
                     <div class="sh-images-gallery">
                     </div>
                 </div>
                 <div class="sh-info center-text col-md-5">
                     <h1 class="sh-title">Title of the product</h1>
-                    <!--<h2 class="variant-title">Variant title</h2>-->'.
-                    $price_tag .
-                    $variants_tag .
-                    $buy_button_tag .
-                    '<div class="sh-content-body">
+                    <!--<h2 class="variant-title">Variant title</h2>-->' .
+            $price_tag .
+            $variants_tag .
+            $buy_button_tag .
+            '<div class="sh-content-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In voluptas, quam odit tenetur numquam, dolore qui explicabo hic vero quidem omnis ab ratione libero rerum, modi dicta quos dolor illo.</p>
                         <p>Nemo reiciendis corporis praesentium totam non? Dicta aliquid odio, error, aspernatur velit maxime hic commodi ullam, consequuntur repudiandae ratione expedita odit. Quod, omnis corporis quo aspernatur tempora quis, dicta vitae.</p>
                     </div>
@@ -44,41 +47,52 @@ function sc_shopify_basic_product_init() {
         </div>
         ';
     }
-    add_shortcode( 'shopify_basic_product', 'sc_shopify_basic_product' );
+
+    add_shortcode('shopify_basic_product', 'ssp_sc_shopify_basic_product');
 }
 
-add_action('init', 'sc_shopify_basic_product_init');
 
-
-// Allow to insert a Shopify product Buy Info using [shopify_info_product product_id="ID" product_link="src_of_product_detail" swipe="false"] shortcode
-// ======================================================================================================================================================
-
-function sc_shopify_info_product_init() {
-    function sc_shopify_info_product($atts) {
+/*
+===========================================================
+INSERT A SHOPIFY PRODUCT CARD INFO WITH BUY BUTTON WITH SHORTCODE [shopify_info_product product_id="ID" product_link="src_of_product_detail" swipe="false"]
+=========================================================== */
+function ssp_sc_shopify_info_product_init()
+{
+    function ssp_sc_shopify_info_product($atts)
+    {
 
         $price_setted = get_option('ssp_shopify_field_price_text', "") != "" ? ' setted' : '';
         $price_text = get_option('ssp_shopify_field_price_text', "") != "" ? get_option('ssp_shopify_field_price_text', "") : '$00.00';
         $price_tag = get_option('ssp_shopify_field_price_show', 1) != 1 ? '' : '<p class="sh-i-product-price center-text' . $price_setted . '">' . $price_text . '</p>';
 
-        return 
-        '
-        <div class="shopify-info-cell ' . ($atts['swipe'] == "true" ? '' : 'card-col-md-3 card-col-sm-6' ) .'" data-product-id="'. $atts['product_id'] .'" >
-            <a class="sh-i-product-info" href="' . $atts['product_link'] . '" id="sh-i-product-'. $atts['product_id'] .'" data-product-id="'. $atts['product_id'] .'" >
-                <div class="sh-i-product-image center-text" style="background-image: url(' . esc_url( plugins_url( 'public/img/placeholder.jpg', __FILE__ ) ) . ')"></div>
+        return
+            '
+        <div class="shopify-info-cell ' . ($atts['swipe'] == "true" ? '' : 'card-col-md-3 card-col-sm-6') . '" data-product-id="' . $atts['product_id'] . '" >
+            <a class="sh-i-product-info" href="' . $atts['product_link'] . '" id="sh-i-product-' . $atts['product_id'] . '" data-product-id="' . $atts['product_id'] . '" >
+                <div class="sh-i-product-image center-text" style="background-image: url(' . esc_url(plugins_url('public/img/placeholder.jpg', __FILE__)) . ')"></div>
                 <h3 class="sh-i-product-title center-text">Title of the product</h3>' .
-                $price_tag .
+            $price_tag .
             '</a>' .
 
-            ($atts['buy-button'] == "true" && get_option('ssp_shopify_field_card_buy_btn', true) ? 
-           '<p class="sh-i-buy-button center-text">
-                <button id="sh-i-buy-button-'. $atts['product_id'] .'" class="buy-now-button js-prevent-cart-listener">Buy Now</button>
-            </p>' 
-            : "")
+            ($atts['buy-button'] == "true" && get_option('ssp_shopify_field_card_buy_btn', true) ?
+                '<p class="sh-i-buy-button center-text">
+                <button id="sh-i-buy-button-' . $atts['product_id'] . '" class="buy-now-button js-prevent-cart-listener">Buy Now</button>
+            </p>'
+                : "")
 
-    . ' </div>';
+            . ' </div>';
     }
-    add_shortcode( 'shopify_info_product', 'sc_shopify_info_product' );
-}
-add_action('init', 'sc_shopify_info_product_init');
 
- 
+    add_shortcode('shopify_info_product', 'ssp_sc_shopify_info_product');
+}
+
+
+/*
+===========================================================
+ACTION HOOKS
+=========================================================== */
+
+add_action('init', 'ssp_sc_shopify_basic_product_init');
+add_action('init', 'ssp_sc_shopify_info_product_init');
+
+/* ======================================================== */

@@ -70,9 +70,9 @@ function ssp_admin_enqueued_assets()
         'apiKey' => get_option('ssp_access_token'),
         'domain' => ssp_remove_protocol(get_option('ssp_shop_url')),
         'appId' => get_option('ssp_app_id'),
-        'processLink' => get_admin_url(null, '/admin-ajax.php?action=wps_process_product'),
-        'getAllProductsLink' => get_admin_url(null, '/admin-ajax.php?action=wps_get_all_products'),
-        'removeOldProductsLink' => get_admin_url(null, '/admin-ajax.php?action=wps_remove_products')
+        'processLink' => get_admin_url(null, '/admin-ajax.php?action=ssp_auto_process_product'),
+        'getAllProductsLink' => get_admin_url(null, '/admin-ajax.php?action=ssp_auto_get_all_products'),
+        'removeOldProductsLink' => get_admin_url(null, '/admin-ajax.php?action=ssp_auto_remove_products')
     ));
 }
 

@@ -112,7 +112,7 @@ You can make some kind on **sync** with the products of your Shopify store. On t
 
 ### Browser Testing
 
-We have using [BrowserStack][1] for testing all features in the most popular moders browsers. 
+We are using [BrowserStack][1] for testing the plugin's functions in the most popular moders browsers. 
 With BrowserStack you can automate all web and mobile browser tests. It offers you a chance to keep attention to the real functionalities of your products and to fit the needs of your customers without worrying about browser testings.
 
 [1]: https://www.browserstack.com

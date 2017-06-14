@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ff95785-90d8-4722-9889-8eb9e561c9e4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smart-shopify-product.php" afterPath="$PROJECT_DIR$/smart-shopify-product.php" />
-    </list>
+    <list default="true" id="7ff95785-90d8-4722-9889-8eb9e561c9e4" name="Default" comment="" />
     <ignored path="smart-shopify-product.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -331,12 +329,12 @@
       <option name="presentableId" value="Default" />
       <updated>1496108932218</updated>
       <workItem from="1496108934150" duration="2150000" />
-      <workItem from="1496165057717" duration="6774000" />
+      <workItem from="1496165057717" duration="6804000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8924000" />
+    <option name="totallyTimeSpent" value="8954000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="6" />

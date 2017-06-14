@@ -109,3 +109,10 @@ On this section you will configure the post type in your Wordpress website you u
 You can make some kind on **sync** with the products of your Shopify store. On the setting of the plugin, you will find a **Refresh Shopify Product** button, it will retrieve all the Shopify products and will remove of your website the Shopify products that don't exist anymore.
 * If you check the `Publish new products right away (set to Pending Review if unchecked)` option, post types created from Shopify products will publish automatically.
 
+
+### Browser Testing
+
+We have using [BrowserStack][1] for testing all features in the most popular moders browsers. 
+With BrowserStack you can automate all web and mobile browser tests. It offers you a chance to keep attention to the real functionalities of your products and to fit the needs of your customers without worrying about browser testings.
+
+[1]: https://www.browserstack.com

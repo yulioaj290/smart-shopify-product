@@ -188,7 +188,7 @@ function ssp_settings_page() {
                                 <small>
                                     If checked, the selector of the Variant Options for Shopify products will be shown.
                                     <br/> <strong>Note:</strong> Be careful. If checked and the product that is
-                                    currently shown has no items availables in stock for the first Variant Option, it
+                                    currently shown has no items available in stock for the first Variant Option, it
                                     will cause you not able to choice another variant to make shop.
                                 </small>
                             </td>

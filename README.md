@@ -104,9 +104,19 @@ On this section you will configure the post type in your Wordpress website you u
 * **Post Type Slug:** Slug of the Post Type for Products you have had created, using `Toolset` or another plugin for management of custom Post Type. **Eg:** product, shopify-product, sh-product. 
 * **Product ID Meta Slug:** Slug of the custom field type (or meta) of Shopify Product ID, for the Product Post Type you have had created, using Toolset or another plugin for management of custom Post Type. **Eg:** product-id, shopify-product-id, sh-product-id. **Note:** Custom field created with Toolset plugin have a "wpcf-" prefix. Eg: wpcf-product-id.
 
+#### Shopify fields options Tag
+On this sections you will be capable to set some settings about the view of some fields of the Shopify products, like price, buy buttons and variant option selectors.
+
+* **Show Shopify price field:** Mean that the price of Shopify products will be shown or not.
+* **Replacing text for Shopify price field:** If it's not empty, the price of the Shopify products will be replaced with your replacing text. It's ideal when you don't want to show the prices to users.
+* **Show card Buy Button:** If checked, the Buy Button will be shown on the product cards, for collection views or sections.
+* **Show details page Buy Button:** If checked, the Buy Button will be shown on product detail pages.
+* **Show Variant Options selector:** If checked, the selector of the Variant Options for Shopify products will be shown.
+                                     Note: Be careful. If checked and the product that is currently shown has no items available in stock for the first Variant Option, it will cause you not able to choice another variant to make shop.
+
 
 ### Refresh function
-You can make some kind on **sync** with the products of your Shopify store. On the setting of the plugin, you will find a **Refresh Shopify Product** button, it will retrieve all the Shopify products and will remove of your website the Shopify products that don't exist anymore.
+You can make some kind on **sync** with the products of your Shopify store. On the setting of the plugin, you will find a **Refresh Shopify Product** button, it will retrieve all Shopify products and will remove of your website the Shopify products that don't exist anymore.
 * If you check the `Publish new products right away (set to Pending Review if unchecked)` option, post types created from Shopify products will publish automatically.
 
 

@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ff95785-90d8-4722-9889-8eb9e561c9e4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/shopify-refresh.js" afterPath="$PROJECT_DIR$/public/js/shopify-refresh.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/shopify-scripts.js" afterPath="$PROJECT_DIR$/public/js/shopify-scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/tabed-admin-menu.js" afterPath="$PROJECT_DIR$/public/js/tabed-admin-menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smart-shopify-product.php" afterPath="$PROJECT_DIR$/smart-shopify-product.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin-page.php" afterPath="$PROJECT_DIR$/admin-page.php" />
     </list>
     <ignored path="smart-shopify-product.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +28,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+            <state relative-caret-position="664">
+              <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -74,8 +71,8 @@
       <file leaf-file-name="admin-page.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="7" column="112" selection-start-line="7" selection-start-column="112" selection-end-line="7" selection-end-column="112" />
+            <state relative-caret-position="342">
+              <caret line="190" column="74" selection-start-line="190" selection-start-column="74" selection-end-line="190" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -140,13 +137,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../../../wp-activate.php" />
-        <option value="$PROJECT_DIR$/admin-page.php" />
         <option value="$PROJECT_DIR$/ajax-functions.php" />
         <option value="$PROJECT_DIR$/shortcodes.php" />
         <option value="$PROJECT_DIR$/smart-shopify-product.php" />
         <option value="$PROJECT_DIR$/public/js/shopify-refresh.js" />
         <option value="$PROJECT_DIR$/public/js/shopify-scripts.js" />
         <option value="$PROJECT_DIR$/public/js/tabed-admin-menu.js" />
+        <option value="$PROJECT_DIR$/admin-page.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -368,12 +366,12 @@
       <updated>1496108932218</updated>
       <workItem from="1496108934150" duration="2150000" />
       <workItem from="1496165057717" duration="6804000" />
-      <workItem from="1498931116117" duration="6925000" />
+      <workItem from="1498931116117" duration="7629000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15879000" />
+    <option name="totallyTimeSpent" value="16583000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="6" />
@@ -569,14 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="7" column="112" selection-start-line="7" selection-start-column="112" selection-end-line="7" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shortcodes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="718">
@@ -596,10 +586,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="190" column="74" selection-start-line="190" selection-start-column="74" selection-end-line="190" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        <state relative-caret-position="664">
+          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
           <folding />
         </state>
       </provider>

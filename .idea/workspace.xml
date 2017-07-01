@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ff95785-90d8-4722-9889-8eb9e561c9e4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin-page.php" afterPath="$PROJECT_DIR$/admin-page.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LICENSE" afterPath="" />
     </list>
     <ignored path="smart-shopify-product.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,7 +24,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="664">
@@ -35,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="smart-shopify-product.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="smart-shopify-product.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/smart-shopify-product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
+            <state relative-caret-position="-1199">
               <caret line="74" column="30" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="30" />
               <folding>
                 <element signature="e#6#403#0#PHP" expanded="true" />
@@ -96,8 +95,8 @@
       <file leaf-file-name="ajax-functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ajax-functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="108" selection-end-column="62" />
+            <state relative-caret-position="669">
+              <caret line="131" column="36" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -366,12 +365,12 @@
       <updated>1496108932218</updated>
       <workItem from="1496108934150" duration="2150000" />
       <workItem from="1496165057717" duration="6804000" />
-      <workItem from="1498931116117" duration="7629000" />
+      <workItem from="1498931116117" duration="7948000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16583000" />
+    <option name="totallyTimeSpent" value="16902000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="6" />
@@ -549,24 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/smart-shopify-product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="74" column="30" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="30" />
-          <folding>
-            <element signature="e#6#403#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax-functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="108" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shortcodes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="718">
@@ -599,6 +580,24 @@
         <state relative-caret-position="664">
           <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax-functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="131" column="36" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smart-shopify-product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1199">
+          <caret line="74" column="30" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="30" />
+          <folding>
+            <element signature="e#6#403#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

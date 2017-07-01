@@ -12,6 +12,17 @@
 
 /*
 ===========================================================
+ACTION HOOKS
+=========================================================== */
+
+add_action('wp_enqueue_scripts', 'ssp_enqueued_assets');
+add_action('admin_enqueue_scripts', 'ssp_admin_enqueued_assets');
+add_action('admin_init', 'ssp_settings_options');
+add_action('wp_head', 'ssp_deactivate_iphone_auto_detection');
+
+
+/*
+===========================================================
 REQUIRED PLUGIN FILES
 ===========================================================
 ajax-functions.php  -> Contain all functions for sync and process Shopify products automatically.
@@ -167,16 +178,5 @@ function ssp_auto_import_shopify_products($id, $title)
 
     }
 }
-
-
-/*
-===========================================================
-ACTION HOOKS
-=========================================================== */
-
-add_action('wp_enqueue_scripts', 'ssp_enqueued_assets');
-add_action('admin_enqueue_scripts', 'ssp_admin_enqueued_assets');
-add_action('admin_init', 'ssp_settings_options');
-add_action('wp_head', 'ssp_deactivate_iphone_auto_detection');
 
 /* ======================================================== */

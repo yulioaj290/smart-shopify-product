@@ -2,6 +2,16 @@
 
 /*
 ===========================================================
+ACTION HOOKS
+=========================================================== */
+
+add_action('wp_ajax_ssp_auto_process_product', 'ssp_auto_process_product');
+add_action('wp_ajax_ssp_auto_get_all_products', 'ssp_auto_get_all_products');
+add_action('wp_ajax_ssp_auto_remove_products', 'ssp_auto_remove_products');
+
+
+/*
+===========================================================
 AUTO PROCESSING AND ADD ALL SHOPIFY PRODUCTS TO WORDPRESS SITE
 =========================================================== */
 function ssp_auto_process_product(){
@@ -121,16 +131,5 @@ function ssp_auto_remove_products(){
     die();
 
 }
-
-
-
-/*
-===========================================================
-ACTION HOOKS
-=========================================================== */
-
-add_action('wp_ajax_wps_process_product', 'ssp_auto_process_product');
-add_action('wp_ajax_wps_get_all_products', 'ssp_auto_get_all_products');
-add_action('wp_ajax_wps_remove_products', 'ssp_auto_remove_products');
 
 /* ======================================================== */

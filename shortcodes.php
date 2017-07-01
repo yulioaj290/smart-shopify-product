@@ -2,6 +2,15 @@
 
 /*
 ===========================================================
+ACTION HOOKS
+=========================================================== */
+
+add_action('init', 'ssp_sc_shopify_basic_product_init');
+add_action('init', 'ssp_sc_shopify_info_product_init');
+
+
+/*
+===========================================================
 INSERT A SHOPIFY PRODUCT WITH BUY BUTTON WITH SHORTCODE [shopify_basic_product product_id="ID"]
 =========================================================== */
 
@@ -85,14 +94,5 @@ function ssp_sc_shopify_info_product_init()
 
     add_shortcode('shopify_info_product', 'ssp_sc_shopify_info_product');
 }
-
-
-/*
-===========================================================
-ACTION HOOKS
-=========================================================== */
-
-add_action('init', 'ssp_sc_shopify_basic_product_init');
-add_action('init', 'ssp_sc_shopify_info_product_init');
 
 /* ======================================================== */

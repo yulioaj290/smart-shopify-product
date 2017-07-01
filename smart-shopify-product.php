@@ -41,7 +41,7 @@ function ssp_enqueued_assets()
         'ssp-shopify-cdn'
     ), '1.0', true);
 
-    wp_localize_script('ssp-shopify-scripts', 'sspVars', array(
+    wp_localize_script('ssp-shopify-scripts', 'sspShopifyVars', array(
         'apiKey' => get_option('ssp_access_token'),
         'domain' => ssp_remove_protocol(get_option('ssp_shop_url')),
         'appId' => get_option('ssp_app_id')
@@ -66,7 +66,7 @@ function ssp_admin_enqueued_assets()
         'ssp-shopify-sdk'
     ), '1.0', true);
 
-    wp_localize_script('ssp-js-shopify-refresh', 'sspVars', array(
+    wp_localize_script('ssp-js-shopify-refresh', 'sspShopifyVars', array(
         'apiKey' => get_option('ssp_access_token'),
         'domain' => ssp_remove_protocol(get_option('ssp_shop_url')),
         'appId' => get_option('ssp_app_id'),

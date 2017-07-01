@@ -2,167 +2,179 @@
 // Create pages for new products
 // Publish if auto_approve is set to 'true'
 
-var wshopRefresh = {
+/*
+ ===========================================================
+ FUNCTIONS FOR HANDLE SHOPIFY PRODUCTS ON THE ADMIN PAGE
 
-    vars: sspVars,
+ - Update existing products
+ - Create pages for new products
+ - Publish if auto_approve is set to 'true'
+ =========================================================== */
+var sspShopifyRefresh = {
+
+    vars: sspShopifyVars,
     shopClient: null,
     productsLeft: 0,
     processedIDs: [],
 
-    init: function(){
-        wshopRefresh.initShopify();
-        wshopRefresh.initListener();
+    init: function () {
+        sspShopifyRefresh.initShopify();
+        sspShopifyRefresh.initListener();
     },
 
-    initListener: function(){
-
-        jQuery('#ssp-refresh-button').on('click', function(e){
-            e.preventDefault();
-
-            // Cancel if already working
-            if( jQuery('#ssp-refresh-button').is(':disabled') ) return;
-
-            // Disable button
-            jQuery('#ssp-refresh-button').prop('disabled', true);
-
-            // Request all products from this user's shop
-            wshopRefresh.shopClient.fetchQueryProducts({
-                limit: 1000
-            }).then(wshopRefresh.processAllProducts);
-
-        });
-
-    },
-
-    initShopify: function(){
-        wshopRefresh.shopClient = ShopifyBuy.buildClient({
-            accessToken: sspVars.apiKey,             
-            apiKey: sspVars.apiKey,             // Deprecated
+    initShopify: function () {
+        sspShopifyRefresh.shopClient = ShopifyBuy.buildClient({
+            accessToken: sspShopifyVars.apiKey,
+            apiKey: sspShopifyVars.apiKey,             // Deprecated
             // Strips out 'http' if user entered it in their options
-            domain: sspVars.domain,
-            appId: sspVars.appId
+            domain: sspShopifyVars.domain,
+            appId: sspShopifyVars.appId
         });
     },
 
-    processAllProducts: function(products){
+    initListener: function () {
+
+        jQuery(function ($) {
+            var $sspRefreshButton = $('#ssp-refresh-button');
+
+            $sspRefreshButton.on('click', function (e) {
+                e.preventDefault();
+
+                // Cancel if already working
+                if ($sspRefreshButton.is(':disabled')) return;
+
+                // Disable button
+                $sspRefreshButton.prop('disabled', true);
+
+                // Request all products from this user's shop
+                sspShopifyRefresh.shopClient.fetchQueryProducts({
+                    limit: 1000
+                }).then(sspShopifyRefresh.processAllProducts);
+
+            });
+        });
+
+    },
+
+    processAllProducts: function (products) {
 
         // Save products
-        wshopRefresh.products = products;
+        sspShopifyRefresh.products = products;
 
         // How many products do we have total?
-        wshopRefresh.totalProducts = products.length;
+        sspShopifyRefresh.totalProducts = products.length;
 
         // Clear processed IDs
-        wshopRefresh.processedIDs.length = 0;
+        sspShopifyRefresh.processedIDs.length = 0;
 
         // Clear message
         jQuery('.refresh-message').html('<li>Received ' + products.length + ' product(s) from Shopify...</li>');
 
         // Kick off processing loop
-        wshopRefresh.processNextProduct();
+        sspShopifyRefresh.processNextProduct();
 
     },
 
-    processNextProduct: function(){
+    processNextProduct: function () {
 
         // Get first product from remaining products
-        var data = wshopRefresh.products.shift();
+        var data = sspShopifyRefresh.products.shift();
 
         // Create the product page
         jQuery.ajax({
-            type: 'POST',
-            url: wshopRefresh.vars.processLink,
-            data: {
-                product_id: data.id,
-                product_title: data.title,
-                auto_publish: jQuery('#auto_approve').is(':checked')
-            }
-        })
+                type: 'POST',
+                url: sspShopifyRefresh.vars.processLink,
+                data: {
+                    product_id: data.id,
+                    product_title: data.title,
+                    auto_publish: jQuery('#auto_approve').is(':checked')
+                }
+            })
 
-        .fail(function(message){
-            console.log(message);
-        })
+            .fail(function (message) {
+                console.log(message);
+            })
 
-        .done(function(message){
+            .done(function (message) {
 
-            message = JSON.parse(message);
+                message = JSON.parse(message);
 
-            jQuery('.refresh-message').prepend('<li>(' + (wshopRefresh.totalProducts - wshopRefresh.products.length) + ' / ' + wshopRefresh.totalProducts + ') ' + message.message + '</li>');
+                jQuery('.refresh-message').prepend('<li>(' + (sspShopifyRefresh.totalProducts - sspShopifyRefresh.products.length) + ' / ' + sspShopifyRefresh.totalProducts + ') ' + message.message + '</li>');
 
-            // Strip out the product ID and save it to a list of IDs we've processed
-            var processedID = message.id;
-            if( processedID.length ){
-                wshopRefresh.processedIDs.push( parseInt(processedID) );
-            }
+                // Strip out the product ID and save it to a list of IDs we've processed
+                var processedID = message.id;
+                if (processedID.length) {
+                    sspShopifyRefresh.processedIDs.push(parseInt(processedID));
+                }
 
-            if( wshopRefresh.products.length > 0 ){
+                if (sspShopifyRefresh.products.length > 0) {
 
-                // Do we have more products? If so, process the next one
-                wshopRefresh.processNextProduct();
+                    // Do we have more products? If so, process the next one
+                    sspShopifyRefresh.processNextProduct();
 
-            } else {
+                } else {
 
-                // Start removing old products
-                wshopRefresh.removeOldProducts();
+                    // Start removing old products
+                    sspShopifyRefresh.removeOldProducts();
 
-            }
-        });
+                }
+            });
 
     },
 
-    removeOldProducts: function(){
+    removeOldProducts: function () {
 
         // Find product IDs without corresponding Shopify products
         jQuery.ajax({
             type: 'POST',
-            url: wshopRefresh.vars.getAllProductsLink
-        }).done(function(message){
+            url: sspShopifyRefresh.vars.getAllProductsLink
+        }).done(function (message) {
 
             // Append message
             jQuery('.refresh-message').prepend('<li>Cleaning up products removed from Shopify...</li>');
 
-            var allProducts = JSON.parse(message);
+            var sspAllProducts = JSON.parse(message);
 
             var extraProductPages = [];
 
             var product_id = jQuery('#ssp_product_id_meta_slug').val()
 
-            allProducts.forEach(function(product){
+            sspAllProducts.forEach(function (product) {
 
                 var productId = parseInt(product[product_id]);
 
                 // Has this product ID not been processed?
-                if( wshopRefresh.processedIDs.indexOf(productId) == -1 ){
+                if (sspShopifyRefresh.processedIDs.indexOf(productId) == -1) {
                     // If it hasn't been processed, mark WP page for removal
                     extraProductPages.push(product.wp_id);
                 }
             });
 
-            if( ! extraProductPages.length ){
+            if (!extraProductPages.length) {
                 // No products to remove, so wrap it all up!
                 jQuery('.refresh-message').prepend('<li>No old products to clean up.</li>');
-                wshopRefresh.completeRefresh();
+                sspShopifyRefresh.completeRefresh();
                 return;
             }
 
             // Delete old products
             jQuery.ajax({
-                type: 'POST',
-                url: wshopRefresh.vars.removeOldProductsLink,
-                data: {
-                    to_remove: extraProductPages.join()
-                }
-            })
-            .done(function(message){
-                // Add status update and finish the process
-                jQuery('.refresh-message').prepend('<li>Removed ' + extraProductPages.length + ' old product(s).</li>');
-                wshopRefresh.completeRefresh();
-            });
+                    type: 'POST',
+                    url: sspShopifyRefresh.vars.removeOldProductsLink,
+                    data: {
+                        to_remove: extraProductPages.join()
+                    }
+                })
+                .done(function (message) {
+                    // Add status update and finish the process
+                    jQuery('.refresh-message').prepend('<li>Removed ' + extraProductPages.length + ' old product(s).</li>');
+                    sspShopifyRefresh.completeRefresh();
+                });
         });
 
     },
 
-    completeRefresh: function(){
+    completeRefresh: function () {
 
         // Reenable the button
         jQuery('#ssp-refresh-button').prop('disabled', false);
@@ -172,16 +184,16 @@ var wshopRefresh = {
 
     }
 
-}
+};
 
-jQuery(document).ready(function($){
-    
-    $('#ssp_admin_page .nav-tab-wrapper .nav-tab').on('click', function(){
+jQuery(document).ready(function ($) {
+
+    $('#ssp_admin_page .nav-tab-wrapper .nav-tab').on('click', function () {
         $('#ssp_admin_page .nav-tab-wrapper .nav-tab.nav-tab-active').removeClass('nav-tab-active');
         $(this).addClass('nav-tab-active');
     });
 
-    wshopRefresh.init();
+    sspShopifyRefresh.init();
 
 });
 

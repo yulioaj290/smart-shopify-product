@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ff95785-90d8-4722-9889-8eb9e561c9e4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin-page.php" afterPath="$PROJECT_DIR$/admin-page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax-functions.php" afterPath="$PROJECT_DIR$/ajax-functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shortcodes.php" afterPath="$PROJECT_DIR$/shortcodes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smart-shopify-product.php" afterPath="$PROJECT_DIR$/smart-shopify-product.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SSP_LICENSE" afterPath="$PROJECT_DIR$/SSP_LICENSE" />
     </list>
     <ignored path="smart-shopify-product.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +37,7 @@
       <file leaf-file-name="smart-shopify-product.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/smart-shopify-product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
+            <state relative-caret-position="360">
               <caret line="20" column="62" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
               <folding>
                 <element signature="e#6#403#0#PHP" expanded="true" />
@@ -357,12 +354,12 @@
       <updated>1496108932218</updated>
       <workItem from="1496108934150" duration="2150000" />
       <workItem from="1496165057717" duration="6804000" />
-      <workItem from="1498931116117" duration="8845000" />
+      <workItem from="1498931116117" duration="8945000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17799000" />
+    <option name="totallyTimeSpent" value="17899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="6" />
@@ -595,7 +592,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/smart-shopify-product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
+        <state relative-caret-position="360">
           <caret line="20" column="62" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
           <folding>
             <element signature="e#6#403#0#PHP" expanded="true" />

@@ -18,22 +18,33 @@ function ssp_sc_shopify_basic_product_init()
 {
     function ssp_sc_shopify_basic_product($atts)
     {
-        $price_setted = get_option('ssp_shopify_field_price_text', "") != "" ? ' setted' : '';
-        $price_text = get_option('ssp_shopify_field_price_text', "") != "" ? get_option('ssp_shopify_field_price_text', "") : '$00.00';
-        $price_tag = get_option('ssp_shopify_field_price_show', 1) != 1 ? '' : '<h3 class="sh-price' . $price_setted . '">' . $price_text . '</h3>';
+        $price_setted = sanitize_option('ssp_shopify_field_price_text', get_option('ssp_shopify_field_price_text', "")) != ""
+            ? ' setted'
+            : '';
 
-        $variants_tag = get_option('ssp_shopify_field_variant_selector', 1) != 1 ? '' : '<div class="sh-variant-types"></div>';
+        $price_text = sanitize_option('ssp_shopify_field_price_text', get_option('ssp_shopify_field_price_text', "")) != ""
+            ? get_option('ssp_shopify_field_price_text', "")
+            : '$00.00';
 
-        $buy_button_tag = get_option('ssp_shopify_field_details_buy_btn', 1) != 1 ? '' :
-            '<div class="sh-add-cart">
-                <button class="buy-button js-prevent-cart-listener">Add To Cart</button>
-            </div>';
+        $price_tag = sanitize_option('ssp_shopify_field_price_show', get_option('ssp_shopify_field_price_show', 1)) != 1
+            ? ''
+            : '<h3 class="sh-price' . $price_setted . '">' . $price_text . '</h3>';
+
+        $variants_tag = sanitize_option('ssp_shopify_field_variant_selector', get_option('ssp_shopify_field_variant_selector', 1)) != 1
+            ? ''
+            : '<div class="sh-variant-types"></div>';
+
+        $buy_button_tag = sanitize_option('ssp_shopify_field_details_buy_btn', get_option('ssp_shopify_field_details_buy_btn', 1)) != 1
+            ? ''
+            : '<div class="sh-add-cart">
+                    <button class="buy-button js-prevent-cart-listener">Add To Cart</button>
+               </div>';
 
         return
             '
         <div class="shopify-basic-container row">
-            <div id="sh-product-id" class="hidden">' . $atts['product_id'] . '</div>
-            <div id="sh-product-' . $atts['product_id'] . '" class="shopify-product col-lg-12">
+            <div id="sh-product-id" class="hidden">' . esc_attr($atts['product_id']) . '</div>
+            <div id="sh-product-' . esc_attr($atts['product_id']) . '" class="shopify-product col-lg-12">
                 <div class="sh-images center-text col-md-5 col-md-offset-1">
                     <div class="sh-images-main" id="sh-images-main">
                         <img id="sh-product-main-image" class="product-image" src="' . esc_url(plugins_url('public/img/placeholder.jpg', __FILE__)) . '" data-zoom-image="' . esc_url(plugins_url('public/img/placeholder.jpg', __FILE__)) . '" />
@@ -70,23 +81,31 @@ function ssp_sc_shopify_info_product_init()
     function ssp_sc_shopify_info_product($atts)
     {
 
-        $price_setted = get_option('ssp_shopify_field_price_text', "") != "" ? ' setted' : '';
-        $price_text = get_option('ssp_shopify_field_price_text', "") != "" ? get_option('ssp_shopify_field_price_text', "") : '$00.00';
-        $price_tag = get_option('ssp_shopify_field_price_show', 1) != 1 ? '' : '<p class="sh-i-product-price center-text' . $price_setted . '">' . $price_text . '</p>';
+        $price_setted = sanitize_option('ssp_shopify_field_price_text', get_option('ssp_shopify_field_price_text', "")) != ""
+            ? ' setted'
+            : '';
+
+        $price_text = sanitize_option('ssp_shopify_field_price_text', get_option('ssp_shopify_field_price_text', "")) != ""
+            ? sanitize_option('ssp_shopify_field_price_text', get_option('ssp_shopify_field_price_text', ""))
+            : '$00.00';
+
+        $price_tag = sanitize_option('ssp_shopify_field_price_show', get_option('ssp_shopify_field_price_show', 1)) != 1
+            ? ''
+            : '<p class="sh-i-product-price center-text' . $price_setted . '">' . $price_text . '</p>';
 
         return
             '
-        <div class="shopify-info-cell ' . ($atts['swipe'] == "true" ? '' : 'card-col-md-3 card-col-sm-6') . '" data-product-id="' . $atts['product_id'] . '" >
-            <a class="sh-i-product-info" href="' . $atts['product_link'] . '" id="sh-i-product-' . $atts['product_id'] . '" data-product-id="' . $atts['product_id'] . '" >
+        <div class="shopify-info-cell ' . (rest_sanitize_boolean($atts['swipe']) === true ? '' : 'card-col-md-3 card-col-sm-6') . '" data-product-id="' . esc_attr($atts['product_id']) . '" >
+            <a class="sh-i-product-info" href="' . esc_attr($atts['product_link']) . '" id="sh-i-product-' . esc_attr($atts['product_id']) . '" data-product-id="' . esc_attr($atts['product_id']) . '" >
                 <div class="sh-i-product-image center-text" style="background-image: url(' . esc_url(plugins_url('public/img/placeholder.jpg', __FILE__)) . ')"></div>
                 <h3 class="sh-i-product-title center-text">Title of the product</h3>' .
             $price_tag .
             '</a>' .
 
-            ($atts['buy-button'] == "true" && get_option('ssp_shopify_field_card_buy_btn', true) ?
-                '<p class="sh-i-buy-button center-text">
-                <button id="sh-i-buy-button-' . $atts['product_id'] . '" class="buy-now-button js-prevent-cart-listener">Buy Now</button>
-            </p>'
+            ($atts['buy-button'] == "true" && sanitize_option('ssp_shopify_field_card_buy_btn', get_option('ssp_shopify_field_card_buy_btn', true))
+                ? '<p class="sh-i-buy-button center-text">
+                        <button id="sh-i-buy-button-' . esc_attr($atts['product_id']) . '" class="buy-now-button js-prevent-cart-listener">Buy Now</button>
+                   </p>'
                 : "")
 
             . ' </div>';

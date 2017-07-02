@@ -6,15 +6,16 @@
 ACTION HOOKS
 =========================================================== */
 
-add_action( 'admin_menu', 'ssp_menu_entry');
+add_action('admin_menu', 'ssp_menu_entry');
 
 
 /*
 ===========================================================
 DECLARE PLUGIN ENTRY FOR THE ADMIN MENU
 =========================================================== */
-function ssp_menu_entry() {
-    add_menu_page( 'Smart Shopify Product Settings', 'S. Shopify Product', 'administrator', 'smart-shopify-product-settings', 'ssp_settings_page', 'dashicons-products' );
+function ssp_menu_entry()
+{
+    add_menu_page('Smart Shopify Product Settings', 'S. Shopify Product', 'administrator', 'smart-shopify-product-settings', 'ssp_settings_page', 'dashicons-products');
 }
 
 
@@ -22,9 +23,10 @@ function ssp_menu_entry() {
 ===========================================================
 RENDER PLUGIN ADMIN PAGE
 =========================================================== */
-function ssp_settings_page() {
-    if ( ! current_user_can( 'administrator' ) ) {
-        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+function ssp_settings_page()
+{
+    if (!current_user_can('administrator')) {
+        wp_die(__('You do not have sufficient permissions to access this page.'));
     }
 
     ?>
@@ -39,8 +41,8 @@ function ssp_settings_page() {
         </h2>
 
         <form method="post" action="options.php">
-            <?php settings_fields( 'smart-shopify-product-settings-group' ); ?>
-            <?php do_settings_sections( 'smart-shopify-product-settings-group' ); ?>
+            <?php settings_fields('smart-shopify-product-settings-group'); ?>
+            <?php do_settings_sections('smart-shopify-product-settings-group'); ?>
 
             <div id='sections'>
                 <section>
@@ -51,7 +53,7 @@ function ssp_settings_page() {
                             <th scope="row">API url</th>
                             <td>
                                 <input type="text" name="ssp_api_url" size="100"
-                                       value="<?php echo esc_attr( get_option( 'ssp_api_url' ) ); ?>"/>
+                                       value="<?php echo esc_attr(get_option('ssp_api_url')); ?>"/>
                                 <br/>
                                 <small><strong>Eg:</strong> https://apikey:password@my-shop.myshopify.com</small>
                             </td>
@@ -61,7 +63,7 @@ function ssp_settings_page() {
                             <th scope="row">Shop url</th>
                             <td>
                                 <input type="text" name="ssp_shop_url" size="100"
-                                       value="<?php echo esc_attr( get_option( 'ssp_shop_url' ) ); ?>"/>
+                                       value="<?php echo esc_attr(get_option('ssp_shop_url')); ?>"/>
                                 <br/>
                                 <small><strong>Eg:</strong> my-shop.myshopify.com</small>
                             </td>
@@ -71,7 +73,7 @@ function ssp_settings_page() {
                             <th scope="row">Access Token</th>
                             <td>
                                 <input type="text" name="ssp_access_token" size="100"
-                                       value="<?php echo esc_attr( get_option( 'ssp_access_token' ) ); ?>"/>
+                                       value="<?php echo esc_attr(get_option('ssp_access_token')); ?>"/>
                                 <br/>
                                 <small>A long randomize string provided by Shopify.</small>
                             </td>
@@ -81,7 +83,7 @@ function ssp_settings_page() {
                             <th scope="row">App ID Number</th>
                             <td>
                                 <input type="text" name="ssp_app_id" size="100"
-                                       value="<?php echo esc_attr( get_option( 'ssp_app_id' ) ); ?>"/>
+                                       value="<?php echo esc_attr(get_option('ssp_app_id')); ?>"/>
                                 <br/>
                                 <small>For Buy Button, usually is 6.</small>
                             </td>
@@ -100,7 +102,7 @@ function ssp_settings_page() {
                             <th scope="row">Post Type Slug</th>
                             <td>
                                 <input type="text" name="ssp_product_post_type_slug" size="100"
-                                       value="<?php echo esc_attr( get_option( 'ssp_product_post_type_slug' ) ); ?>"/>
+                                       value="<?php echo esc_attr(get_option('ssp_product_post_type_slug')); ?>"/>
                                 <br/>
                                 <small>
                                     Slug of the Post Type for Products you have had created, using Toolset or another
@@ -114,7 +116,7 @@ function ssp_settings_page() {
                             <th scope="row">Product ID Meta Slug</th>
                             <td>
                                 <input type="text" name="ssp_product_id_meta_slug" size="100"
-                                       value="<?php echo esc_attr( get_option( 'ssp_product_id_meta_slug' ) ); ?>"/>
+                                       value="<?php echo esc_attr(get_option('ssp_product_id_meta_slug')); ?>"/>
                                 <br/>
                                 <small>
                                     Slug of the custom field type (or meta) of Shopify Product ID, for the Product Post
@@ -138,7 +140,7 @@ function ssp_settings_page() {
                             <th scope="row">Show Shopify price field</th>
                             <td>
                                 <input type="checkbox"
-                                       value="1" <?php echo checked( get_option( 'ssp_shopify_field_price_show', 1 ), 1 ); ?>
+                                       value="1" <?php echo checked(get_option('ssp_shopify_field_price_show', 1), 1); ?>
                                        name="ssp_shopify_field_price_show"/>
                                 <br/>
                                 <small>
@@ -151,7 +153,7 @@ function ssp_settings_page() {
                             <th scope="row">Replacing text for Shopify price field</th>
                             <td>
                                 <input type="text" name="ssp_shopify_field_price_text" size="100"
-                                       value="<?php echo esc_attr( get_option( 'ssp_shopify_field_price_text', "" ) ); ?>"/>
+                                       value="<?php echo esc_attr(get_option('ssp_shopify_field_price_text', "")); ?>"/>
                                 <br/>
                                 <small>
                                     If it's not empty, the price of the Shopify products will be replaced with your
@@ -164,7 +166,7 @@ function ssp_settings_page() {
                             <th scope="row">Show card Buy Button</th>
                             <td>
                                 <input type="checkbox"
-                                       value="1" <?php echo checked( get_option( 'ssp_shopify_field_card_buy_btn', 1 ), 1 ); ?>
+                                       value="1" <?php echo checked(get_option('ssp_shopify_field_card_buy_btn', 1), 1); ?>
                                        name="ssp_shopify_field_card_buy_btn" size="100"/>
                                 <br/>
                                 <small>
@@ -178,7 +180,7 @@ function ssp_settings_page() {
                             <th scope="row">Show details page Buy Button</th>
                             <td>
                                 <input type="checkbox"
-                                       value="1" <?php echo checked( get_option( 'ssp_shopify_field_details_buy_btn', 1 ), 1 ); ?>
+                                       value="1" <?php echo checked(get_option('ssp_shopify_field_details_buy_btn', 1), 1); ?>
                                        name="ssp_shopify_field_details_buy_btn" size="100"/>
                                 <br/>
                                 <small>
@@ -191,7 +193,7 @@ function ssp_settings_page() {
                             <th scope="row">Show Variant Options selector</th>
                             <td>
                                 <input type="checkbox"
-                                       value="1" <?php echo checked( get_option( 'ssp_shopify_field_variant_selector', 1 ), 1 ); ?>
+                                       value="1" <?php echo checked(get_option('ssp_shopify_field_variant_selector', 1), 1); ?>
                                        name="ssp_shopify_field_variant_selector" size="100"/>
                                 <br/>
                                 <small>
@@ -213,7 +215,10 @@ function ssp_settings_page() {
         </form>
 
         <?php /* Only draw 'refresh' section if plugin is linked to Shopify store */
-        if ( ! empty( get_option( 'ssp_api_url' ) ) and ! empty( get_option( 'ssp_shop_url' ) ) and ! empty( get_option( 'ssp_app_id' ) ) ) : ?>
+        if (!empty(sanitize_option('ssp_api_url', get_option('ssp_api_url')))
+            and !empty(sanitize_option('ssp_shop_url', get_option('ssp_shop_url')))
+            and !empty(sanitize_option('ssp_app_id', get_option('ssp_app_id')))
+        ) : ?>
 
             <hr>
             <h3>Import all products</h3>
@@ -229,7 +234,7 @@ function ssp_settings_page() {
 
                 <p class="submit">
                     <input type="hidden" name="ssp_product_id_meta_slug" id="ssp_product_id_meta_slug"
-                           value="<?php echo get_option( 'ssp_product_id_meta_slug' ) ?>">
+                           value="<?php echo esc_attr(get_option('ssp_product_id_meta_slug')) ?>">
                     <input type="submit" name="refresh-button" id="ssp-refresh-button" class="button"
                            value="Refresh Shopify Products">
                 </p>

@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ff95785-90d8-4722-9889-8eb9e561c9e4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SSP_LICENSE" afterPath="$PROJECT_DIR$/SSP_LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin-page.php" afterPath="$PROJECT_DIR$/admin-page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax-functions.php" afterPath="$PROJECT_DIR$/ajax-functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shortcodes.php" afterPath="$PROJECT_DIR$/shortcodes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smart-shopify-product.php" afterPath="$PROJECT_DIR$/smart-shopify-product.php" />
     </list>
     <ignored path="smart-shopify-product.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +40,8 @@
       <file leaf-file-name="smart-shopify-product.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/smart-shopify-product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="62" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
+            <state relative-caret-position="745">
+              <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
               <folding>
                 <element signature="e#6#403#0#PHP" expanded="true" />
               </folding>
@@ -49,19 +52,19 @@
       <file leaf-file-name="shortcodes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shortcodes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="313">
+              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
               <folding>
                 <element signature="e#7#145#0#PHP" expanded="true" />
-                <marker date="1498949329761" expanded="true" signature="1223:1331" placeholder="..." />
-                <marker date="1498949329761" expanded="true" signature="1413:3008" placeholder="..." />
-                <marker date="1498949329761" expanded="true" signature="1594:2993" placeholder="..." />
-                <marker date="1498949329761" expanded="true" signature="1671:2112" placeholder="..." />
-                <marker date="1498949329761" expanded="true" signature="1740:2010" placeholder="..." />
-                <marker date="1498949329761" expanded="true" signature="2062:2089" placeholder="..." />
-                <marker date="1498949329761" expanded="true" signature="2171:2974" placeholder="..." />
-                <marker date="1498949329761" expanded="true" signature="2439:2951" placeholder="..." />
-                <marker date="1498949329761" expanded="true" signature="4708:4863" placeholder="..." />
+                <marker date="1498958561003" expanded="true" signature="1589:1704" placeholder="..." />
+                <marker date="1498958561003" expanded="true" signature="1786:3401" placeholder="..." />
+                <marker date="1498958561003" expanded="true" signature="1987:3386" placeholder="..." />
+                <marker date="1498958561003" expanded="true" signature="2064:2505" placeholder="..." />
+                <marker date="1498958561003" expanded="true" signature="2133:2403" placeholder="..." />
+                <marker date="1498958561003" expanded="true" signature="2455:2482" placeholder="..." />
+                <marker date="1498958561003" expanded="true" signature="2564:3367" placeholder="..." />
+                <marker date="1498958561003" expanded="true" signature="2832:3344" placeholder="..." />
+                <marker date="1498958561003" expanded="true" signature="5484:5664" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -70,8 +73,8 @@
       <file leaf-file-name="admin-page.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="3978">
+              <caret line="236" column="93" selection-start-line="236" selection-start-column="93" selection-end-line="236" selection-end-column="93" />
               <folding>
                 <element signature="e#8#146#0#PHP" expanded="true" />
               </folding>
@@ -82,10 +85,26 @@
       <file leaf-file-name="ajax-functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ajax-functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+            <state relative-caret-position="558">
+              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
               <folding>
                 <element signature="e#7#145#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../wp-includes/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="5038" column="9" selection-start-line="5038" selection-start-column="9" selection-end-line="5038" selection-end-column="9" />
+              <folding>
+                <marker date="1494886903451" expanded="true" signature="17236:17340" placeholder="SELECT meta_... wp_postmeta" />
+                <marker date="1494886903451" expanded="true" signature="18399:18503" placeholder="SELECT post_... wp_postmeta" />
+                <marker date="1494886903451" expanded="true" signature="38380:38449" placeholder="SELECT optio... wp_options" />
+                <marker date="1494886903451" expanded="true" signature="147042:147138" placeholder="SELECT post_... wp_postmeta" />
+                <marker date="1494886903451" expanded="true" signature="147601:147703" placeholder="SELECT comme... wp_commentmeta" />
               </folding>
             </state>
           </provider>
@@ -94,8 +113,8 @@
       <file leaf-file-name="shopify-refresh.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/shopify-refresh.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="141" column="12" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
+            <state relative-caret-position="766">
+              <caret line="164" column="51" selection-start-line="164" selection-start-column="51" selection-end-line="164" selection-end-column="51" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -129,8 +148,8 @@
         <option value="$PROJECT_DIR$/public/js/shopify-scripts.js" />
         <option value="$PROJECT_DIR$/public/js/tabed-admin-menu.js" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/admin-page.php" />
         <option value="$PROJECT_DIR$/ajax-functions.php" />
+        <option value="$PROJECT_DIR$/admin-page.php" />
         <option value="$PROJECT_DIR$/shortcodes.php" />
         <option value="$PROJECT_DIR$/smart-shopify-product.php" />
       </list>
@@ -354,12 +373,12 @@
       <updated>1496108932218</updated>
       <workItem from="1496108934150" duration="2150000" />
       <workItem from="1496165057717" duration="6804000" />
-      <workItem from="1498931116117" duration="8945000" />
+      <workItem from="1498931116117" duration="13291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17899000" />
+    <option name="totallyTimeSpent" value="22245000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="6" />
@@ -411,15 +430,15 @@
           <caret line="95" column="44" selection-start-line="95" selection-start-column="44" selection-end-line="95" selection-end-column="44" />
           <folding>
             <element signature="e#7#145#0#PHP" expanded="true" />
-            <marker date="1498949329761" expanded="true" signature="1223:1331" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="1413:3008" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="1594:2993" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="1671:2112" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="1740:2010" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="2062:2089" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="2171:2974" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="2439:2951" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="4708:4863" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="1589:1704" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="1786:3401" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="1987:3386" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="2064:2505" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="2133:2403" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="2455:2482" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="2564:3367" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="2832:3344" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="5484:5664" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -501,16 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/shopify-refresh.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="141" column="12" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/tabed-admin-menu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -538,10 +547,118 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/rest-api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="953" column="20" selection-start-line="953" selection-start-column="20" selection-end-line="953" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/shopify-refresh.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="164" column="51" selection-start-line="164" selection-start-column="51" selection-end-line="164" selection-end-column="51" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2888">
+          <caret line="1900" column="35" selection-start-line="1900" selection-start-column="35" selection-end-line="1900" selection-end-column="35" />
+          <folding>
+            <marker date="1494886903451" expanded="true" signature="57509:57525" placeholder="Insert into post... " />
+            <marker date="1494886903451" expanded="true" signature="57535:57551" placeholder="Insert into page... " />
+            <marker date="1494886903451" expanded="true" signature="83259:83343" placeholder="SELECT post_... $" />
+            <marker date="1494886903451" expanded="true" signature="85279:85430" placeholder="SELECT post_... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="85600:85693" placeholder="SELECT COUNT... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="91421:91461" placeholder="SELECT * FRO... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="92868:92936" placeholder="SELECT * FRO... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="93261:93338" placeholder="SELECT ID FR... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="93790:93855" placeholder="SELECT comme... wp_comments" />
+            <marker date="1494886903451" expanded="true" signature="94048:94102" placeholder="SELECT meta_... wp_postmeta" />
+            <marker date="1494886903451" expanded="true" signature="98690:98773" placeholder="SELECT comme... wp_comments" />
+            <marker date="1494886903451" expanded="true" signature="100695:100778" placeholder="UPDATE wp_co... " />
+            <marker date="1494886903451" expanded="true" signature="120641:120682" placeholder="SELECT ID FR... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="132181:132257" placeholder="SELECT post_... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="133330:133465" placeholder="SELECT post_... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="134583:134678" placeholder="SELECT post_... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="148833:148885" placeholder="SELECT ID FR... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="151469:151609" placeholder="SELECT ID, p... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="153426:153524" placeholder="SELECT ID FR... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="153585:153662" placeholder="SELECT ID FR... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="165719:165777" placeholder="SELECT * FRO... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="170187:170227" placeholder="SELECT * FRO... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="171345:171410" placeholder="SELECT comme... wp_comments" />
+            <marker date="1494886903451" expanded="true" signature="171604:171658" placeholder="SELECT meta_... wp_postmeta" />
+            <marker date="1494886903451" expanded="true" signature="172229:172348" placeholder="SELECT meta_... wp_postmeta" />
+            <marker date="1494886903451" expanded="true" signature="194507:194652" placeholder="SELECT post_... " />
+            <marker date="1494886903451" expanded="true" signature="194708:194849" placeholder="SELECT post_... " />
+            <marker date="1494886903451" expanded="true" signature="194945:195139" placeholder="SELECT DATE_... " />
+            <marker date="1494886903451" expanded="true" signature="205863:205973" placeholder="SELECT ID FR... wp_posts" />
+            <marker date="1494886903451" expanded="true" signature="208494:208550" placeholder="SELECT wp_po... wp_posts" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3978">
+          <caret line="236" column="93" selection-start-line="236" selection-start-column="93" selection-end-line="236" selection-end-column="93" />
+          <folding>
+            <element signature="e#8#146#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shortcodes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding>
+            <element signature="e#7#145#0#PHP" expanded="true" />
+            <marker date="1498958561003" expanded="true" signature="1589:1704" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="1786:3401" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="1987:3386" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="2064:2505" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="2133:2403" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="2455:2482" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="2564:3367" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="2832:3344" placeholder="..." />
+            <marker date="1498958561003" expanded="true" signature="5484:5664" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="5038" column="9" selection-start-line="5038" selection-start-column="9" selection-end-line="5038" selection-end-column="9" />
+          <folding>
+            <marker date="1494886903451" expanded="true" signature="17236:17340" placeholder="SELECT meta_... wp_postmeta" />
+            <marker date="1494886903451" expanded="true" signature="18399:18503" placeholder="SELECT post_... wp_postmeta" />
+            <marker date="1494886903451" expanded="true" signature="38380:38449" placeholder="SELECT optio... wp_options" />
+            <marker date="1494886903451" expanded="true" signature="147042:147138" placeholder="SELECT post_... wp_postmeta" />
+            <marker date="1494886903451" expanded="true" signature="147601:147703" placeholder="SELECT comme... wp_commentmeta" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/kses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="1216" column="44" selection-start-line="1216" selection-start-column="44" selection-end-line="1216" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../../wp-includes/formatting.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1914" column="9" selection-start-line="1914" selection-start-column="9" selection-end-line="1914" selection-end-column="9" />
+        <state relative-caret-position="253">
+          <caret line="3842" column="43" selection-start-line="3842" selection-start-column="43" selection-end-line="3842" selection-end-column="43" />
           <folding>
             <element signature="e#6#124#0#PHP" expanded="true" />
             <marker date="1494886903455" expanded="true" signature="111012:111041" placeholder="..." />
@@ -553,47 +670,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ajax-functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+        <state relative-caret-position="558">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
           <folding>
             <element signature="e#7#145#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="e#8#146#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shortcodes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#7#145#0#PHP" expanded="true" />
-            <marker date="1498949329761" expanded="true" signature="1223:1331" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="1413:3008" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="1594:2993" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="1671:2112" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="1740:2010" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="2062:2089" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="2171:2974" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="2439:2951" placeholder="..." />
-            <marker date="1498949329761" expanded="true" signature="4708:4863" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/smart-shopify-product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="62" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
+        <state relative-caret-position="745">
+          <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
           <folding>
             <element signature="e#6#403#0#PHP" expanded="true" />
           </folding>

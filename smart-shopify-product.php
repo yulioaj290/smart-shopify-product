@@ -53,9 +53,9 @@ function ssp_enqueued_assets()
     ), '1.0', true);
 
     wp_localize_script('ssp-shopify-scripts', 'sspShopifyVars', array(
-        'apiKey' => get_option('ssp_access_token'),
-        'domain' => ssp_remove_protocol(get_option('ssp_shop_url')),
-        'appId' => get_option('ssp_app_id')
+        'apiKey' => sanitize_option('ssp_access_token', get_option('ssp_access_token')),
+        'domain' => ssp_remove_protocol(esc_url(get_option('ssp_shop_url'))),
+        'appId' => sanitize_option('ssp_app_id', get_option('ssp_app_id'))
     ));
 }
 
@@ -78,9 +78,9 @@ function ssp_admin_enqueued_assets()
     ), '1.0', true);
 
     wp_localize_script('ssp-js-shopify-refresh', 'sspShopifyVars', array(
-        'apiKey' => get_option('ssp_access_token'),
-        'domain' => ssp_remove_protocol(get_option('ssp_shop_url')),
-        'appId' => get_option('ssp_app_id'),
+        'apiKey' => sanitize_option('ssp_access_token', get_option('ssp_access_token')),
+        'domain' => ssp_remove_protocol(esc_url(get_option('ssp_shop_url'))),
+        'appId' => sanitize_option('ssp_app_id', get_option('ssp_app_id')),
         'processLink' => get_admin_url(null, '/admin-ajax.php?action=ssp_auto_process_product'),
         'getAllProductsLink' => get_admin_url(null, '/admin-ajax.php?action=ssp_auto_get_all_products'),
         'removeOldProductsLink' => get_admin_url(null, '/admin-ajax.php?action=ssp_auto_remove_products')
@@ -163,16 +163,16 @@ function ssp_auto_import_shopify_products($id, $title)
         $post_ID = get_the_ID();
         $create_record_fields = array(
             'post_title' => $title,
-            'post_type' => get_option('ssp_product_post_type_slug'),
+            'post_type' => sanitize_option('ssp_product_post_type_slug', get_option('ssp_product_post_type_slug')),
             'post_status' => 'publish'
         );
 
         if ($_POST["log_time"] = "true") {
             $new_post_id = wp_insert_post($create_record_fields);
             update_post_meta($new_post_id, 'wpcf-post_title', $title);
-            update_post_meta($new_post_id, 'wpcf-post_type', get_option('ssp_product_post_type_slug'));
+            update_post_meta($new_post_id, 'wpcf-post_type', sanitize_option('ssp_product_post_type_slug', get_option('ssp_product_post_type_slug')));
             update_post_meta($new_post_id, 'wpcf-post-status', 'publish');
-            update_post_meta($new_post_id, get_option('ssp_product_id_meta_slug'), $id);
+            update_post_meta($new_post_id, sanitize_option('ssp_product_id_meta_slug', get_option('ssp_product_id_meta_slug')), $id);
 
         }
 

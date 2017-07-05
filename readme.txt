@@ -165,6 +165,6 @@ If you are a developer, maybe you can force to your website to use some styles. 
  
 == Changelog ==
  
-= 1.0 =
+= 1.1 =
 * Created plugin and the admin settings.
  

@@ -44,8 +44,11 @@ git commit -am "$COMMITMSG"
 echo "Tagging new version in git"
 git tag -a "v$NEWVERSION1" -m "$COMMITMSG"
 
+echo "Removing unespected 'v' tag from project"
+git tag -d v
+
 echo "Pushing latest commit to origin, with tags"
-git push origin master
+#git push origin master
 git push origin master --tags
 
 echo 

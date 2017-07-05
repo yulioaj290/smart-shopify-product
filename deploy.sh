@@ -4,9 +4,11 @@
 # A modification of Dean Clatworthy's deploy script as found here: https://github.com/deanc/wordpress-plugin-git-svn
 # The difference is that this script lives in the plugin's git repo & doesn't require an existing SVN repo.
 
-#prompt for plugin slug
-echo -e "Plugin Slug: \c"
-read PLUGINSLUG
+# An adaptation of the yulioaj290 for Smart Shopify Product
+
+#plugin slug
+PLUGINSLUG="smart-shopify-product"
+echo -e "Plugin Slug: $PLUGINSLUG"
 
 # main config
 CURRENTDIR=`pwd`

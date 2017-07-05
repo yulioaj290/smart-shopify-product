@@ -1,3 +1,14 @@
+=== Smart Shopify Product ===
+Contributors: yulioaj290
+Requires at least: 3.0
+Tested up to: 4.7.4
+Stable tag: trunk
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+This Wordpress plugin allows add some shortcodes on post to insert Shopify products. Also allow to retrieve/update/remove automatically all products from the shopify store (like a sync function).
+
+== Description ==
 ## Smart Shopify Product
 This Wordpress plugin allows add some shortcodes on post to insert Shopify products. Also allow to retrieve/update/remove automatically all products from the shopify store (like a sync function).
 
@@ -93,8 +104,6 @@ To get a Shopify Cart where to see all products added to cart, you can insert th
 You can access to the Smart Shopify Product setting through the **S. Shopify Product** item menu in the Wordpress admin menu.
 
 #### Shopify Tag
-On this section you will configure the main params to connect the WordPress website to the Shopify store, through the Shopify API credentials and the number of the app.
-
 * **API url:** The url of Shopify API for your Shopify app. This look like: `https://apikey:password@my-shop.myshopify.com`.
 * **Shop url:** The url of your Shopify store. This look like: `my-shop.myshopify.com`.
 * **Access Token:** This is a long random string of your Shopify app. This is knew as the `API Key` too.
@@ -124,7 +133,37 @@ You can make some kind on **sync** with the products of your Shopify store. On t
 
 ### Browser Testing
 
-We are using [BrowserStack][1] for testing the plugin's functions in the most popular moders browsers. 
+We are using [BrowserStack](https://www.browserstack.com) for testing the plugin's functions in the most popular moders browsers. 
 With BrowserStack you can automate all web and mobile browser tests. It offers you a chance to keep attention to the real functionalities of your products and to fit the needs of your customers without worrying about browser testings.
 
-[1]: https://www.browserstack.com
+
+== Frequently Asked Questions ==
+ 
+= Why the plugin do not sync with the Shopify store properly? =
+ 
+For a properly sync you must configure the Shopify API credentials in the plugin admin page. Follow the hints below the fields.
+ 
+= The refresh functions in the plugin admin page works fine, but I can not able to see the products in the website. =
+ 
+To see the products on the website, you need to use one of the Shortcodes provided by the plugin. Each shortcode show some information about the product and some HTML controls to select options and make shop.
+
+= When I click some Buy button, the products cart does not appear. =
+
+In order to get visible your product cart, you must add the Button and the HTML section of the cart to the body of your website. Follow the documentation instructions of the plugin to do this.
+
+= The product cards and the products cart are showing with a default style that do not match with my website style. Am I able to change the appearance of this elements? =
+
+If you are a developer, maybe you can force to your website to use some styles. However today it is not possible to change the default styles through the plugin admin page. In the future this features will be added.
+ 
+
+== Screenshots ==
+ 
+1. On this section you will configure the main params to connect the WordPress website to the Shopify store, through the Shopify API credentials and the number of the app.
+2. On this section you will configure the post type in your Wordpress website you use to represent a Shopify product. It usually works fine with post types created with Toolset plugin (the free version of this, allow to create this post types :)).
+3. On this sections you will be capable to set some settings about the view of some fields of the Shopify products, like price, buy buttons and variant option selectors.
+ 
+== Changelog ==
+ 
+= 1.0 =
+* Created plugin and the admin settings.
+ 

@@ -1,5 +1,5 @@
 === Smart Shopify Product ===
-Contributors: yulioaj290
+Contributors: yulioaj290, jorgelbg
 Tags: shopify, product, ecommerce, store
 Requires at least: 3.0
 Tested up to: 4.7.4
